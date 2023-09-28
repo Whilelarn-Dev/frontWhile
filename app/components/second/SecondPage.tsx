@@ -18,7 +18,7 @@ export default function SecondPage() {
             Replace User Guides & FAQs
           </h2>
           <p className="text-xl md:text-3xl text-center font-merriweather">
-            Connect any PDF or any data to ChatGPT's brain, and let user chat
+            Connect any PDF or any data to ChatGPT&apos;s brain, and let user chat
             with it
           </p>
           <ul

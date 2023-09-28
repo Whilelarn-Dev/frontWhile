@@ -19,7 +19,7 @@ export default function ThirdPage() {
             AI-Search is extermely smart
           </h2>
           <p className="text-xl md:text-3xl text-center font-merriweather">
-            Users can use ChatGPT's brain, to help them take decisions
+            Users can use ChatGPT&apos;s brain, to help them take decisions
           </p>
           <ul
             className="text-xl md:text-2xl font-merriweather
