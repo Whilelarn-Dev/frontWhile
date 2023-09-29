@@ -13,17 +13,17 @@ export default function SecondPage() {
         md:items-center md:px-14 px-5"
       >
         <div className="flex-1">
-          <h2 className="md:text-5xl text-3xl font-merriweather font-bold">
+          <h2 className="md:text-5xl text-center text-2xl font-merriweather font-bold">
             {" "}
             Replace User Guides & FAQs
           </h2>
-          <p className="text-xl md:text-3xl text-center font-merriweather">
-            Connect any PDF or any data to ChatGPT&apos;s brain, and let user chat
-            with it
+          <p className="text-lg md:text-3xl text-center font-merriweather">
+            Connect any PDF or any data to ChatGPT&apos;s brain, and let user
+            chat with it
           </p>
           <ul
-            className="text-xl md:text-2xl font-merriweather
-           text-gray-900 space-y-3"
+            className="text-lg md:text-2xl font-merriweather
+           text-gray-900 space-y-1 md:space-y-3"
           >
             <li className="flex items-center gap-3">
               <div className="relative w-4 h-4">

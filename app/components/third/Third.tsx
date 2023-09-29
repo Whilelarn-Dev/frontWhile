@@ -2,7 +2,7 @@ import Image from "next/image";
 import cross from "@/app/svg/delete.png";
 import { Icon } from "@mdi/react";
 import { mdiClockOutline } from "@mdi/js";
-import { mdilMagnify ,mdilMessageText} from "@mdi/light-js";
+import { mdilMagnify, mdilMessageText } from "@mdi/light-js";
 import Iframe from "react-iframe";
 export default function ThirdPage() {
   return (
@@ -14,16 +14,16 @@ export default function ThirdPage() {
         md:items-center md:px-14 px-5"
       >
         <div className="flex-1">
-          <h2 className="md:text-5xl text-3xl font-merriweather font-bold">
+          <h2 className="md:text-5xl text-center text-2xl font-merriweather font-bold">
             {" "}
             AI-Search is extermely smart
           </h2>
-          <p className="text-xl md:text-3xl text-center font-merriweather">
+          <p className="text-lg md:text-3xl mt-1 text-center font-merriweather">
             Users can use ChatGPT&apos;s brain, to help them take decisions
           </p>
           <ul
-            className="text-xl md:text-2xl font-merriweather
-           text-gray-900 space-y-3"
+            className="text-lg md:text-2xl font-merriweather
+           text-gray-900 space-y-1 md:space-y-3"
           >
             <li className="flex items-center gap-3">
               <div className="relative w-4 h-4">
