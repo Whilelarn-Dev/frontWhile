@@ -3,6 +3,8 @@ import cross from "@/app/svg/delete.png";
 import { Icon } from "@mdi/react";
 import { mdiClockOutline, mdiStar, mdiLightningBolt } from "@mdi/js";
 import Iframe from "react-iframe";
+import first from "@/app/svg/firstDealog.jpeg";
+import Link from "next/link";
 export default function SecondPage() {
   return (
     <>
@@ -76,13 +78,18 @@ export default function SecondPage() {
           </ul>
         </div>
         <div className="flex-1">
-          <div className="relative h-[200px] md:h-[350px] w-max-[200px] w-full md:w-max-[600px] mb-5">
-            <Iframe
-              url="https://www.youtube.com/embed/v=3gb3LjPgGNg"
-              className="mb-5"
-              height="100%"
-              width="100%"
-            ></Iframe>
+          <div
+            className="relative
+          h-full
+           h-max-[200px] md:h-max-[350px]
+            w-max-[200px] w-full md:w-max-[600px] mb-5"
+          >
+            <Link
+              href={"https://www.youtube.com/watch?v=3gb3LjPgGNg"}
+              target="_blank"
+            >
+              <Image src={first} alt="first image"></Image>
+            </Link>
           </div>
         </div>
       </main>

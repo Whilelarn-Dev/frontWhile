@@ -15,7 +15,12 @@ export default function FirstPage() {
           While<span className="text-[#6877c9]">learn();</span>
         </h1>
         <div className="flex gap-4 md:mb-12 mb-8">
-          <Link href={"#"}>
+          <Link
+            target="_blank"
+            href={
+              "https://api.whatsapp.com/send/?phone=%2B79093120434&text&type=phone_number&app_absent=0"
+            }
+          >
             <Icon
               path={mdiWhatsapp}
               title="User Profile"
@@ -26,7 +31,12 @@ export default function FirstPage() {
               className="h-8 w-8 md:h-12 md:w-12"
             />
           </Link>
-          <Link href={"#"}>
+          <Link
+            target="_blank"
+            href={
+              "https://www.linkedin.com/in/%F0%9F%94%B4-muwaffaq-imam-416807b1/"
+            }
+          >
             <Icon
               path={mdiLinkedin}
               title="User Profile"
@@ -48,13 +58,15 @@ export default function FirstPage() {
             Let user chat with your business using chatGPT!
           </p>
           <DeomoButtn />
-          <p
+          <Link
+            href={"https://www.whilelearn.com/taqa_Space"}
+            target="_blank"
             className="mt-2 md:mt-4
           cursor-pointer
           text-whileRed font-merriweather md:text-2xl"
           >
             Try Our Solution
-          </p>
+          </Link>
         </div>
         <div className="flex-1 flex flex-col items-center">
           <div className="relative h-[200px] md:h-[350px] w-max-[200px] w-full md:w-max-[600px] mb-5">
