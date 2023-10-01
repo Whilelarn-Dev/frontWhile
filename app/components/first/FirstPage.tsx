@@ -6,6 +6,7 @@ import RequestFree from "./RequestFree";
 import { mdiLinkedin } from "@mdi/js";
 import { Icon } from "@mdi/react";
 import { mdiWhatsapp } from "@mdi/js";
+import TrySol from "./TrySol";
 
 export default function FirstPage() {
   return (
@@ -58,15 +59,7 @@ export default function FirstPage() {
             Let user chat with your business using chatGPT!
           </p>
           <DeomoButtn />
-          <Link
-            href={"https://www.whilelearn.com/taqa_Space"}
-            target="_blank"
-            className="mt-2 md:mt-4
-          cursor-pointer
-          text-whileRed font-merriweather md:text-2xl"
-          >
-            Try Our Solution
-          </Link>
+          <TrySol/>
         </div>
         <div className="flex-1 flex flex-col items-center">
           <div className="relative h-[200px] md:h-[350px] w-max-[200px] w-full md:w-max-[600px] mb-5">
