@@ -59,7 +59,7 @@ export default function FirstPage() {
             Let user chat with your business using chatGPT!
           </p>
           <DeomoButtn />
-          <TrySol/>
+          <TrySol />
         </div>
         <div className="flex-1 flex flex-col items-center">
           <div className="relative h-[200px] md:h-[350px] w-max-[200px] w-full md:w-max-[600px] mb-5">

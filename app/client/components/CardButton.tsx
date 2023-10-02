@@ -1,13 +1,18 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
-export default function CardButton({name}:{name:string}) {
-    const router = useRouter();
+export default function CardButton({ name }: { name: string }) {
+  const router = useRouter();
   return (
-    <Button onClick={()=>{
-        router.push(`/client/${name}`)
-    }} variant={"default"}>Ask {name}</Button>
-  )
+    <Button
+      onClick={() => {
+        router.push(`/client/${name}`);
+      }}
+      variant={"default"}
+    >
+      Ask {name}
+    </Button>
+  );
 }
