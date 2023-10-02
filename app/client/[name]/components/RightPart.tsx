@@ -50,7 +50,6 @@ export default function RightPart({ person }: Right) {
           right:true          
         })}
         setinputs("")
-
     }
 
   return (

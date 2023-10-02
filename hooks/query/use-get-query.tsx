@@ -28,13 +28,7 @@ const UseGetQuery = ({
       console.log('======================data==============');
       return data as PostSchema;
     },
-    onSuccess: async () => {
-      return toast({
-        title: onSuccessMessage,
-        description: onSuccessDescription,
-        variant: "default",
-      });
-    },
+  
     onError: (error) => {
       return toast({
         title: "ops... some thing want wrong",
