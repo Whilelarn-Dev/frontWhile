@@ -4,7 +4,7 @@ import ThirdPage from "./components/third/Third";
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden ">
+    <div className="overflow-x-hidden bg-whileWhite ">
       <main className="bg-[#fff5d7] h-min-screen w-screen">
         <FirstPage />
       </main>

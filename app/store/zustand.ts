@@ -19,3 +19,4 @@ export const useTriggerStore = create<Trigger>((set) => ({
   message: { message: "", right: false },
   add: (m: MessageSchema) => set((state) => ({ message: m })),
 }));
+

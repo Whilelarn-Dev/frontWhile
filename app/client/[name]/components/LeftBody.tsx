@@ -14,7 +14,7 @@ export default  function LeftBody({person}:{person:PersonSchema}) {
     useEffect(() => {
         if(message.right){
         console.log('====================================');
-        console.log("fuck");
+        console.log("qurey");
         console.log('====================================');
          mutate({
             apiKey:person.apiKey,
