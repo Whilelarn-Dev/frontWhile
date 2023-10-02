@@ -6,15 +6,18 @@
     "specialize": "UX Designer",
     "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
     "apiKey": "Taqa-6JV5p1VKr67aUYeW25g2CVJRBfWTW90Bb8bY8D8Ax0w",
-    "isArabic": "true",
-    "isContentCreator": "false"
+    "isArabic": true,
+    "isContentCreator": false
   },
   {
     "firstName": "alla",
     "name": "alla Almasri",
     "image": "/creators/alla_Almasri.jpeg",
     "specialize": "UX Designer",
-    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it."
+    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
+    "apiKey": "",
+    "isArabic": true,
+    "isContentCreator": false
   },
   {
     "firstName": "ibrahem",
@@ -32,13 +35,19 @@
     "name": "mohammed bhaa",
     "image": "/creators/Mohammed_Bhaa.jpeg",
     "specialize": "UX Designer",
-    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it."
+    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
+    "apiKey": "",
+    "isArabic": true,
+    "isContentCreator": false
   },
   {
     "firstName": "sameh",
     "name": "Sameh┘АMakky",
     "image": "/creators/Sameh┘АMakky.jpeg",
     "specialize": "UX Designer",
-    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it."
+    "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
+    "apiKey": "",
+    "isArabic": true,
+    "isContentCreator": false
   }
 ]
