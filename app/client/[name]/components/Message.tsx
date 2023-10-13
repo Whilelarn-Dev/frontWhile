@@ -15,14 +15,6 @@ export default function Message({
   person,
   post,
 }: MessageProps) {
-  console.log("====================================");
-  console.log(post?.post_info.imgUrl);
-  console.log(post?.post_info.videoUrl);
-
-  console.log("====================================");
-  const pictureURL = post?.post_info.imgUrl.replaceAll("&amp ;", "&");
-  const videoURL = post?.post_info.videoUrl.replaceAll("&amp ;", "&");
-
   return (
     <>
       {right ? (
@@ -48,15 +40,17 @@ export default function Message({
               <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                 <div className="">
                   <div>{message}</div>
-                  <div className="w-full p-4">
-                    <hr />
-                  </div>
-                  {post?.post_info?.videoUrl === "" ? (
-                    post?.post_info.imgUrl === "" ? null : (
+                  {post !== null ? (
+                    <div className="w-full p-4">
+                      <hr />
+                    </div>
+                  ) : null}
+                  {post?.post_info?.videoUrl === undefined ? (
+                    post?.post_info.imgUrl === undefined ? null : (
                       <div className="relative w-full h-full max-h-[250px] max-w-[400px] rounded-sm">
                         <Image
                           fill
-                          src={pictureURL ? pictureURL : post?.post_info.imgUrl}
+                          src={post?.post_info.imgUrl}
                           alt="test"
                         ></Image>
                       </div>
@@ -66,11 +60,7 @@ export default function Message({
                       <video
                         width={"500px"}
                         height={"300px"}
-                        src={
-                          post?.post_info?.videoUrl
-                            ? videoURL
-                            : post?.post_info.videoUrl
-                        }
+                        src={post?.post_info?.videoUrl}
                       ></video>
                     </div>
                   )}
