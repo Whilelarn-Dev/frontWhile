@@ -7,7 +7,8 @@
     "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
     "apiKey": "Taqa-6JV5p1VKr67aUYeW25g2CVJRBfWTW90Bb8bY8D8Ax0w",
     "isArabic": true,
-    "isContentCreator": false
+    "isContentCreator": false,
+    "hint": "hi"
   },
   {
     "firstName": "alla",
@@ -17,7 +18,8 @@
     "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
     "apiKey": "",
     "isArabic": true,
-    "isContentCreator": false
+    "isContentCreator": false,
+    "hint": "hi"
   },
   {
     "firstName": "ibrahem",
@@ -28,7 +30,8 @@
     "apiKey": "ibrahim_aqel-Phu1Gdquw-O2Gc7DjilR4oL31oTQ5rEu34jWFrmuLbo",
     "isShort": true,
     "isArabic": false,
-    "isContentCreator": true
+    "isContentCreator": true,
+    "hint": "إسألني مثلا:  كيف أطور من مهاراتي في التعلم؟"
   },
   {
     "firstName": "mohammed",
@@ -38,16 +41,18 @@
     "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
     "apiKey": "",
     "isArabic": true,
-    "isContentCreator": false
+    "isContentCreator": false,
+    "hint": "إسألني مثلا:  كيف أطور من حسابي اللينكد ان؟"
   },
   {
     "firstName": "sameh",
-    "name": "Sameh┘АMakky",
+    "name": "Sameh AMakky",
     "image": "/creators/Sameh┘АMakky.jpeg",
     "specialize": "UX Designer",
     "discreption": "A UX designer is the voice of the customer. Our job is to look beyond the business goals. We don't just experience user interface but also questions it.",
-    "apiKey": "",
+    "apiKey": "sameh_makky-ErqP1qWHUtG3eaQyb3DEfSYNJzQn0SVwaA-zLl3ifAE",
     "isArabic": true,
-    "isContentCreator": false
+    "isContentCreator": true,
+    "hint": "إسألني مثلا:  كيف أطور من مهاراتي في التعلم؟"
   }
 ]

@@ -23,6 +23,7 @@ export const Payload = z.object({
   isShort: z.boolean(),
   isArabic: z.boolean(),
   isContentCreator: z.boolean(),
+  userId: z.string(),
 });
 export type PayloadSchema = z.infer<typeof Payload>;
 
@@ -35,6 +36,7 @@ export const Person = z.object({
   apiKey: z.string(),
   isArabic: z.boolean(),
   isContentCreator: z.boolean(),
+  hint: z.string(),
 });
 export type PersonSchema = z.infer<typeof Person>;
 

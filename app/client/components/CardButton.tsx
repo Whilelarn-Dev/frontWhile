@@ -7,12 +7,13 @@ export default function CardButton({ name }: { name: string }) {
   const router = useRouter();
   return (
     <Button
+      className="w-40 font-merriweather"
       onClick={() => {
         router.push(`/client/${name}`);
       }}
       variant={"default"}
     >
-      Ask {name}
+      Chat With {name}
     </Button>
   );
 }

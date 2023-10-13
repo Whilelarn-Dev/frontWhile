@@ -78,7 +78,7 @@ export default function FirstPage() {
           Case Studies-1
         </h2>
       </div>
-      <RequestFree />
+      <RequestFree text={"Request a Free Demo"} />
     </>
   );
 }

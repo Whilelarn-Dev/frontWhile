@@ -1,19 +1,18 @@
 import data from "@/data/customer.json";
 import CardItem from "./CardItem";
+import LogoWhile from "../../../components/shared/LogoWhile";
 export default function Card() {
   return (
     <div className="mb-16">
       <div className="container flex justify-center mx-auto pt-16">
-        <div>
-          <p className="text-gray-500 text-lg text-center font-normal pb-3">
-            While Learn
-          </p>
-          <h1 className="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
-            Ask A Talented People What you wonder
+        <div className="flex flex-col justify-center items-center">
+          <LogoWhile></LogoWhile>
+          <h1 className="xl:text-3xl text-2xl text-center mt-3 text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
+            Chat With Content Creater
           </h1>
         </div>
       </div>
-      <div className="w-full bg-gray-100 px-10 pt-10">
+      <div className="w-full bg-whileWhite px-10 pt-10">
         <div className="container mx-auto">
           <div
             role="list"
