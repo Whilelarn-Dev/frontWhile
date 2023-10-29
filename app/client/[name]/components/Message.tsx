@@ -124,9 +124,13 @@ export default function Message({
                         </div>
                       )}
                     </div>
-                    <div className="text-ellipsis">
-                      {post?.post_info.postContent}
-                    </div>
+                    {message === person.hint ? null : (
+                      <div className="text-ellipsis p-2">
+                        <p className="bg-slate-200 rounded-md p-4">
+                          {post?.post_info.postContent}
+                        </p>
+                      </div>
+                    )}
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuItem
