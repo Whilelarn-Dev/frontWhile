@@ -14,7 +14,7 @@ export default function page({ params }: pageProps) {
   const person = data.filter((ele) => ele.firstName === params.name)[0];
   return (
     <div className="h-screen antialiased text-gray-800">
-      <div className="flex flex-row h-full w-full overflow-x-hidden">
+      <div className="md:flex md:flex-row h-full w-full overflow-x-hidden">
         <LeftPart person={person}></LeftPart>
         <RightPart person={person}></RightPart>
       </div>

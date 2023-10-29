@@ -2,15 +2,14 @@
 import { Input } from "@/components/ui/input";
 import Message from "./Message";
 import { useEffect, useState } from "react";
-import { useStore } from "zustand";
-import { useMessageStore, useTriggerStore } from "@/app/store/zustand";
 import { PersonSchema, PostSchema } from "@/type/postType";
 import UseGetQuery from "@/hooks/query/use-get-query";
+
 import DotSwapper from "./Wating";
 interface Right {
   person: PersonSchema;
 }
-interface ms {
+export interface ms {
   message: string;
   right: boolean;
   post?: PostSchema | null;
@@ -49,6 +48,17 @@ export default function RightPart({ person }: Right) {
     setinputs("");
   }
   useEffect(() => {
+    const oldMessages: ms[] = JSON.parse(
+      localStorage.getItem("message") ?? "[]",
+    );
+    if (oldMessages.length > 0) setmessage(oldMessages);
+  }, []);
+  useEffect(() => {
+    if (message.length > 1) {
+      localStorage.setItem("message", JSON.stringify(message));
+    }
+  });
+  useEffect(() => {
     if (data) {
       setmessage((pre) => [
         ...pre,
@@ -68,6 +78,8 @@ export default function RightPart({ person }: Right) {
           {message.map((ele, idx) => {
             return (
               <Message
+                index={idx}
+                setMessage={setmessage}
                 post={ele.post ?? null}
                 person={person}
                 message={ele.message}

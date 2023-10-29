@@ -8,9 +8,8 @@ interface Left {
 }
 export default async function LeftPart({ person }: Left) {
   return (
-    <div className="flex flex-col py-8 pl-6 pr-2 w-[220px]">
+    <div className="flex flex-col md:py-8 pl-6 mt-4 md:mt-0 pr-2 w-[220px]">
       <LogoWhile></LogoWhile>
-      <div className="flex justify-center gap-3 items-center bg-white mt-4 w-full py-6 px-4 rounded-lg"></div>
     </div>
   );
 }
