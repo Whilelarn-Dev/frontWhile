@@ -1,5 +1,12 @@
 import z, { object } from "zod";
-
+export const releventPost = z.array(
+  z.object({
+    postUrl: z.string(),
+    postContent: z.string(),
+    videoUrl: z.string(),
+    imgUrl: z.string(),
+  }))
+  export type ReleventPostSchema = z.infer<typeof releventPost>;
 export const Post = z.object({
   search_result: z.string(),
   post_info: z.object({
@@ -7,7 +14,7 @@ export const Post = z.object({
     postContent: z.string(),
     videoUrl: z.string(),
     imgUrl: z.string(),
-    relevant_posts: z.array(z.string()),
+    relevant_posts: releventPost,
     questions: z.array(z.string()),
   }),
 });
@@ -24,6 +31,7 @@ export const Payload = z.object({
   isArabic: z.boolean(),
   isContentCreator: z.boolean(),
   userId: z.string(),
+  isOpenAi: z.boolean(),
 });
 export type PayloadSchema = z.infer<typeof Payload>;
 

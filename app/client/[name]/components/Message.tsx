@@ -82,17 +82,17 @@ export default function Message({
               className="h-full w-full"
             />
           </div>
-          <div className="p-3 w-full flex justify-start rounded-lg max-w-[600px]">
+          <div className="p-3 w-full flex justify-start rounded-lg max-w-[650px]">
             <div className="flex flex-row items-center">
               <div
                 onClick={handleClick}
                 onContextMenu={handleClick}
-                className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
+                className="relative ml-3 text-sm bg-white py-2 max-w-[650px] px-4 shadow rounded-xl"
               >
                 <DropdownMenu open={open} onOpenChange={setopen}>
                   <DropdownMenuTrigger className="cursor-default" disabled>
                     {" "}
-                    <div className="">
+                    <div className="max-w-[650px]  ">
                       <div>{message}</div>
                       {post !== null ? (
                         <div className="w-full p-4">
@@ -101,11 +101,15 @@ export default function Message({
                       ) : null}
                       {post?.post_info?.videoUrl === undefined ||
                       post?.post_info?.videoUrl === "" ? (
-                        post?.post_info.imgUrl === undefined ? null : (
-                          <div className="relative mb-3 flex justify-center w-full h-full rounded-sm">
+                        post?.post_info.imgUrl === "" || post?.post_info.imgUrl === undefined? null : (
+                          <div className="mb-3 flex max-w-[450px]  justify-center rounded-sm">
                             <img
                               className="rounded-sm w-full h-full "
-                              style={{ objectFit: "cover" }}
+                              style={{
+                                objectFit: "cover",
+                                width: "500px",
+                                height: "300px",
+                              }}
                               loading="lazy"
                               decoding="async"
                               src={post?.post_info.imgUrl}
@@ -114,7 +118,7 @@ export default function Message({
                           </div>
                         )
                       ) : (
-                        <div className="relative w-full h-full max-h-[250px] max-w-[400px] rounded-sm">
+                        <div className=" w-full h-full max-h-[300px] max-w-[500px] rounded-sm">
                           {" "}
                           <video
                             width={"500px"}
@@ -126,8 +130,8 @@ export default function Message({
                     </div>
                     {message === person.hint ? null : (
                       <div className="text-ellipsis p-2">
-                        <p className="bg-slate-200 rounded-md p-4">
-                          {post?.post_info.postContent}
+                        <p className="bg-slate-200 rounded-md p-4 max-w-[550px] overflow-clip  ">
+                          {`\u202B ${post?.post_info.postContent}\u202C`}
                         </p>
                       </div>
                     )}

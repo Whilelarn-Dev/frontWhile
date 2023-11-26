@@ -6,6 +6,8 @@ import { PersonSchema, PostSchema } from "@/type/postType";
 import UseGetQuery from "@/hooks/query/use-get-query";
 
 import DotSwapper from "./Wating";
+import { Button } from "@/components/ui/button";
+import SimilarePost from "./SimilarePost";
 interface Right {
   person: PersonSchema;
 }
@@ -43,19 +45,20 @@ export default function RightPart({ person }: Right) {
         isShort: true,
         query: inputs,
         userId: "105962983257369026275",
+        isOpenAi: false,
       });
     }
     setinputs("");
   }
   useEffect(() => {
     const oldMessages: ms[] = JSON.parse(
-      localStorage.getItem("message") ?? "[]",
+      localStorage.getItem(person.firstName) ?? "[]",
     );
     if (oldMessages.length > 0) setmessage(oldMessages);
   }, []);
   useEffect(() => {
     if (message.length > 1) {
-      localStorage.setItem("message", JSON.stringify(message));
+      localStorage.setItem(person.firstName, JSON.stringify(message));
     }
   });
   useEffect(() => {
@@ -91,6 +94,11 @@ export default function RightPart({ person }: Right) {
           {isLoading ? <DotSwapper></DotSwapper> : null}
         </div>
         <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
+          <SimilarePost
+            relevent={
+              message[message.length - 1].post?.post_info.relevant_posts
+            }
+          ></SimilarePost>
           <div className="flex-grow ml-4">
             <div className="relative w-full">
               <Input
