@@ -7,7 +7,7 @@ import UseGetQuery from "@/hooks/query/use-get-query";
 
 import DotSwapper from "./Wating";
 import { Button } from "@/components/ui/button";
-import SimilarePost from "./SimilarePost";
+import SimilarePost from "./similare-post/SimilarePost";
 interface Right {
   person: PersonSchema;
 }
@@ -21,6 +21,7 @@ export default function RightPart({ person }: Right) {
   const [message, setmessage] = useState<ms[]>([
     { message: person.hint, right: false, post: null },
   ]);
+  
   const { mutate, isLoading, data, isError } = UseGetQuery({});
 
   useEffect(() => {
@@ -95,6 +96,7 @@ export default function RightPart({ person }: Right) {
         </div>
         <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
           <SimilarePost
+            setmessage={setmessage}
             relevent={
               message[message.length - 1].post?.post_info.relevant_posts
             }

@@ -1,12 +1,21 @@
 import z, { object } from "zod";
-export const releventPost = z.array(
+export const releventPosts = z.array(
   z.object({
     postUrl: z.string(),
     postContent: z.string(),
     videoUrl: z.string(),
     imgUrl: z.string(),
-  }))
-  export type ReleventPostSchema = z.infer<typeof releventPost>;
+  }),
+);
+export type ReleventPostsSchema = z.infer<typeof releventPosts>;
+export const oneReleventPost = z.object({
+  postUrl: z.string(),
+  postContent: z.string(),
+  videoUrl: z.string(),
+  imgUrl: z.string(),
+});
+export type OneReleventPostSchema = z.infer<typeof oneReleventPost>;
+
 export const Post = z.object({
   search_result: z.string(),
   post_info: z.object({
@@ -14,7 +23,7 @@ export const Post = z.object({
     postContent: z.string(),
     videoUrl: z.string(),
     imgUrl: z.string(),
-    relevant_posts: releventPost,
+    relevant_posts: releventPosts.optional(),
     questions: z.array(z.string()),
   }),
 });

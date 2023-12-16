@@ -28,6 +28,8 @@ export default function Message({
   index,
   setMessage,
 }: MessageProps) {
+  const [ImageError, setImageError] = useState<boolean>(false);
+  const [videoError, setvideoError] = useState(false);
   const [open, setopen] = useState<boolean>(false);
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     if (e.type === "click") {
@@ -100,8 +102,11 @@ export default function Message({
                         </div>
                       ) : null}
                       {post?.post_info?.videoUrl === undefined ||
+                      videoError ||
                       post?.post_info?.videoUrl === "" ? (
-                        post?.post_info.imgUrl === "" || post?.post_info.imgUrl === undefined? null : (
+                        post?.post_info.imgUrl === "" ||
+                        ImageError ||
+                        post?.post_info.imgUrl === undefined ? null : (
                           <div className="mb-3 flex max-w-[450px]  justify-center rounded-sm">
                             <img
                               className="rounded-sm w-full h-full "
@@ -114,6 +119,7 @@ export default function Message({
                               decoding="async"
                               src={post?.post_info.imgUrl}
                               alt="test"
+                              onError={() => setImageError(true)}
                             />
                           </div>
                         )
@@ -124,6 +130,7 @@ export default function Message({
                             width={"500px"}
                             height={"300px"}
                             src={post?.post_info?.videoUrl}
+                            onError={() => setvideoError(true)}
                           ></video>
                         </div>
                       )}
