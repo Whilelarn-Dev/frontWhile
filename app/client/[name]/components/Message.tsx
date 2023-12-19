@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ms } from "./RightPart";
+import { Button } from "antd";
 
 interface MessageProps {
   message: string;

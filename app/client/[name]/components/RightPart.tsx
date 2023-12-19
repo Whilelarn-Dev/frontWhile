@@ -21,7 +21,7 @@ export default function RightPart({ person }: Right) {
   const [message, setmessage] = useState<ms[]>([
     { message: person.hint, right: false, post: null },
   ]);
-  
+
   const { mutate, isLoading, data, isError } = UseGetQuery({});
 
   useEffect(() => {
