@@ -1,33 +1,33 @@
 "use client";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { toast } from "@/components/ui/use-toast";
+import { SuggestQustionType } from "@/type/suggested-qustion-type";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { useRouter } from "next/navigation";
-import { PayloadSchema, PostSchema } from "@/type/postType";
 
-interface UseGetQueryProps {
+interface UseGetQustionProps {
   onSuccessMessage?: string;
   onSuccessDescription?: string;
   onErrorMessage?: string;
   onErrorDescription?: string;
 }
 
-const UseGetQuery = ({
+const UseGetQustion = ({
   onErrorMessage,
   onSuccessDescription,
   onSuccessMessage,
   onErrorDescription,
-}: UseGetQueryProps) => {
+}: UseGetQustionProps) => {
   const router = useRouter();
   return useMutation({
-    mutationFn: async (payload: PayloadSchema) => {
+    mutationFn: async (payload: { query: string }) => {
       const { data } = await axios.post(
-        "https://whilelearn.onrender.com/askWhilelearn",
+        "https://whilelearn.onrender.com/suggestQuestions",
         payload,
       );
 
       await router.refresh();
-      return data as PostSchema;
+      return data as SuggestQustionType;
     },
 
     onError: (error) => {
@@ -39,4 +39,4 @@ const UseGetQuery = ({
     },
   });
 };
-export default UseGetQuery;
+export default UseGetQustion;

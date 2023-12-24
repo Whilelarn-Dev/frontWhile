@@ -1,16 +1,19 @@
 "use client";
+import { formatText } from "@/lib/TextFormater";
 import { OneReleventPostSchema, PostSchema } from "@/type/postType";
-import React, { Dispatch, SetStateAction, useState } from "react";
-import RanderImageOrVideo from "./RanderImageOrVideo";
-import { ms } from "../RightPart";
 import { useRouter } from "next/navigation";
+import React, { Dispatch, SetStateAction } from "react";
+import { ms } from "../right-part/RightPart";
+import RanderImageOrVideo from "./RanderImageOrVideo";
 
 export default function PostBody({
   element,
   setmessage,
+  setopen,
 }: {
   element: OneReleventPostSchema;
   setmessage: Dispatch<SetStateAction<ms[]>>;
+  setopen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const route = useRouter();
   return (
@@ -32,12 +35,12 @@ export default function PostBody({
           ...pre,
           { message: element.postContent, right: false, post: po },
         ]);
-        route.refresh();
+        setopen(false);
       }}
       className="flex-1 bg-gray-200 space-y-3 flex flex-col items-start border p-3 cursor-pointer overflow-clip shadow rounded-sm"
     >
       <div className=" max-h-[140px] overflow-clip">
-        {`\u202B ${element.postContent}\u202C`}
+        {formatText(element.postContent)}
       </div>
       <RanderImageOrVideo
         imgUrl={element.imgUrl}

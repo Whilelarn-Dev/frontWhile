@@ -1,9 +1,8 @@
 "use client";
 import { ReleventPostsSchema } from "@/type/postType";
 import React, { Dispatch, SetStateAction } from "react";
-import postBody from "./PostBody";
+import { ms } from "../right-part/RightPart";
 import PostBody from "./PostBody";
-import { ms } from "../RightPart";
 
 export default function SimilarePostDialog({
   relevent,
@@ -31,6 +30,7 @@ export default function SimilarePostDialog({
           {relevent ? (
             relevent?.map((ele, idx) => (
               <PostBody
+                setopen={setopen}
                 setmessage={setmessage}
                 key={idx}
                 element={ele}
@@ -43,7 +43,7 @@ export default function SimilarePostDialog({
               </div>
               <div
                 onClick={() => setopen(false)}
-                className="m-5 p-5 cursor-pointer border text-center rounded-lg text-lg shadow text-black bg-white"
+                className="m-5 p-3 cursor-pointer border text-center rounded-lg text-lg shadow bg-black text-white"
               >
                 press to return
               </div>

@@ -1,17 +1,16 @@
 "use client";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import Image from "next/image";
-import { PersonSchema, PostSchema } from "../../../../type/postType";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { formatText } from "@/lib/TextFormater";
+import Image from "next/image";
+import React, { Dispatch, SetStateAction, useState } from "react";
+import { cn } from "../../../../../lib/utils";
+import { PersonSchema, PostSchema } from "../../../../../type/postType";
 import { ms } from "./RightPart";
-import { Button } from "antd";
 
 interface MessageProps {
   message: string;
@@ -76,7 +75,7 @@ export default function Message({
         </div>
       ) : (
         <div className="flex ">
-          <div className="relative h-11 w-11 -mr-3  mt-3 rounded-full  overflow-hidden">
+          <div className="relative h-11 w-11 -mr-3  mt-5 rounded-full  overflow-hidden">
             <Image
               width={100}
               height={100}
@@ -90,13 +89,17 @@ export default function Message({
               <div
                 onClick={handleClick}
                 onContextMenu={handleClick}
-                className="relative ml-3 text-sm bg-white py-2 max-w-[650px] px-4 shadow rounded-xl"
+                className="relative ml-3 text-sm bg-white py-2 w-full px-4 shadow rounded-xl "
               >
                 <DropdownMenu open={open} onOpenChange={setopen}>
                   <DropdownMenuTrigger className="cursor-default" disabled>
                     {" "}
-                    <div className="max-w-[650px]  ">
-                      <div>{message}</div>
+                    <div
+                      className={cn(
+                        "w-full text-black p-4 flex flex-col items-center md:text-base text-sm",
+                      )}
+                    >
+                      {formatText(message)}
                       {post !== null ? (
                         <div className="w-full p-4">
                           <hr />
@@ -125,10 +128,10 @@ export default function Message({
                           </div>
                         )
                       ) : (
-                        <div className=" w-full h-full max-h-[300px] max-w-[500px] rounded-sm">
+                        <div className=" w-full h-full max-h-[300px] max-w-[450px] rounded-sm">
                           {" "}
                           <video
-                            width={"500px"}
+                            width={"450px"}
                             height={"300px"}
                             src={post?.post_info?.videoUrl}
                             onError={() => setvideoError(true)}
@@ -138,9 +141,9 @@ export default function Message({
                     </div>
                     {message === person.hint ? null : (
                       <div className="text-ellipsis p-2">
-                        <p className="bg-slate-200 rounded-md p-4 max-w-[550px] overflow-clip  ">
-                          {`\u202B ${post?.post_info.postContent}\u202C`}
-                        </p>
+                        <div className="bg-slate-100 rounded-md p-4 max-w-[550px] overflow-clip md:text-base text-sm ">
+                          {formatText(post?.post_info.postContent)}
+                        </div>
                       </div>
                     )}
                   </DropdownMenuTrigger>

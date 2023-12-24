@@ -1,13 +1,17 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import Message from "./Message";
-import { useEffect, useState } from "react";
-import { PersonSchema, PostSchema } from "@/type/postType";
 import UseGetQuery from "@/hooks/query/use-get-query";
+import { PersonSchema, PostSchema } from "@/type/postType";
+import { useEffect, useState } from "react";
+import Message from "./Message";
 
+import {
+  useActivateStore,
+  useQustionStore,
+  useRefreshMessagesStore,
+} from "@/app/store/zustand";
+import SimilarePost from "../similare-post/SimilarePost";
 import DotSwapper from "./Wating";
-import { Button } from "@/components/ui/button";
-import SimilarePost from "./similare-post/SimilarePost";
 interface Right {
   person: PersonSchema;
 }
@@ -18,12 +22,19 @@ export interface ms {
 }
 export default function RightPart({ person }: Right) {
   const [inputs, setinputs] = useState<string>("");
+  const { message: qustionMessage } = useQustionStore();
+  const activateSend = useActivateStore();
+  const { refresh, setRefresh } = useRefreshMessagesStore();
+  const [refreshState, setrefreshState] = useState(false);
   const [message, setmessage] = useState<ms[]>([
     { message: person.hint, right: false, post: null },
   ]);
 
   const { mutate, isLoading, data, isError } = UseGetQuery({});
 
+  useEffect(() => {
+    setinputs(qustionMessage.slice(2));
+  }, [qustionMessage]);
   useEffect(() => {
     if (isError) {
       setmessage((pre) => pre.slice(1));
@@ -52,14 +63,25 @@ export default function RightPart({ person }: Right) {
     setinputs("");
   }
   useEffect(() => {
-    const oldMessages: ms[] = JSON.parse(
-      localStorage.getItem(person.firstName) ?? "[]",
-    );
-    if (oldMessages.length > 0) setmessage(oldMessages);
+    if (refresh) {
+      setmessage([{ message: person.hint, right: false, post: null }]);
+      setRefresh(false);
+    }
+  }, [refresh]);
+
+  useEffect(() => {
+    if (!refresh) {
+      const oldMessages: ms[] = JSON.parse(
+        localStorage.getItem(person.firstName) ?? "[]",
+      );
+      if (oldMessages.length > 0) setmessage(oldMessages);
+    }
   }, []);
   useEffect(() => {
-    if (message.length > 1) {
-      localStorage.setItem(person.firstName, JSON.stringify(message));
+    if (!refresh) {
+      if (message.length > 1) {
+        localStorage.setItem(person.firstName, JSON.stringify(message));
+      }
     }
   });
   useEffect(() => {
@@ -94,7 +116,7 @@ export default function RightPart({ person }: Right) {
           })}
           {isLoading ? <DotSwapper></DotSwapper> : null}
         </div>
-        <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
+        <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 mb-7">
           <SimilarePost
             setmessage={setmessage}
             relevent={
@@ -105,7 +127,12 @@ export default function RightPart({ person }: Right) {
             <div className="relative w-full">
               <Input
                 onKeyDown={(e) => {
-                  if (e.key === "Enter" && inputs.length > 1 && !isLoading)
+                  if (
+                    e.key === "Enter" &&
+                    inputs.length > 1 &&
+                    !isLoading &&
+                    activateSend.activated
+                  )
                     handleMessage();
                 }}
                 value={inputs}
@@ -117,7 +144,9 @@ export default function RightPart({ person }: Right) {
           </div>
           <div className="ml-4">
             <button
-              disabled={inputs.length < 2 || isLoading}
+              disabled={
+                inputs.length < 2 || isLoading || !activateSend.activated
+              }
               onClick={handleMessage}
               className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
             >

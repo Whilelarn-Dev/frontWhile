@@ -1,21 +1,12 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import React, { Dispatch, SetStateAction, useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { ReleventPostsSchema } from "@/type/postType";
+import { Dispatch, SetStateAction, useState } from "react";
+import { ms } from "../right-part/RightPart";
 import SimilarePostDialog from "./SimilarePostDialog";
-import { ms } from "../RightPart";
 
 export default function SimilarePost({
   relevent,
-  setmessage
+  setmessage,
 }: {
   relevent: ReleventPostsSchema | undefined;
   setmessage: Dispatch<SetStateAction<ms[]>>;
@@ -26,11 +17,17 @@ export default function SimilarePost({
     <>
       <div
         onClick={() => setopen(true)}
-        className="bg-black p-2 cursor-pointer rounded-md text-white hover:bg-white hover:text-black"
+        className="bg-black text-sm lg:text-base p-1 lg:p-2 cursor-pointer rounded-md text-white hover:bg-white hover:text-black"
       >
         similar Post
       </div>
-      {open && <SimilarePostDialog setmessage={setmessage} relevent={relevent} setopen={setopen} />}
+      {open && (
+        <SimilarePostDialog
+          setmessage={setmessage}
+          relevent={relevent}
+          setopen={setopen}
+        />
+      )}
     </>
   );
 }
