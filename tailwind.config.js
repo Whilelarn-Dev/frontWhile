@@ -17,8 +17,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        whileRed: "#d74148",
+        whileRed: "#D74148",
         whileWhite: "#fff5d7",
+        FirstColor: "#fff5d7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -8,14 +8,23 @@ import {
   DialogFooter,
   DialogHeader,
 } from "@/components/ui/dialog";
-import UseGetQustion from "@/hooks/query/use-get-qustion-suggestion";
+import UseGetQuery from "@/hooks/query/use-get-query";
 import { Brain } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useQustionStore } from '../../../../store/zustand';
+import {
+  SuggestPayloadType,
+  SuggestQustionType,
+} from "../../../../../type/suggested-qustion-type";
+import { useQustionStore } from "../../../../store/zustand";
 
 export default function SuggestedQustion() {
-  const { data, isLoading, mutate } = UseGetQustion({});
-  const {addMessage} = useQustionStore();
+  const { data, isLoading, mutate } = UseGetQuery<
+    SuggestPayloadType,
+    SuggestQustionType
+  >({
+    url: process.env.NEXT_PUBLIC_SUGGESTION!!,
+  });
+  const { addMessage } = useQustionStore();
   const [open, setopen] = useState(false);
   useEffect(() => {
     console.log(data);
@@ -24,7 +33,7 @@ export default function SuggestedQustion() {
     <>
       <div
         onClick={() => {
-          mutate({ query: "hello" });
+          mutate({ data: { query: "hello" } });
           setopen(true);
         }}
         className="cursor-pointer mt-8"

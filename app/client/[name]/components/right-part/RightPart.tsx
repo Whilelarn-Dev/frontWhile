@@ -1,7 +1,7 @@
 "use client";
 import { Input } from "@/components/ui/input";
 import UseGetQuery from "@/hooks/query/use-get-query";
-import { PersonSchema, PostSchema } from "@/type/postType";
+import { PayloadSchema, PersonSchema, PostSchema } from "@/type/postType";
 import { useEffect, useState } from "react";
 import Message from "./Message";
 
@@ -30,7 +30,10 @@ export default function RightPart({ person }: Right) {
     { message: person.hint, right: false, post: null },
   ]);
 
-  const { mutate, isLoading, data, isError } = UseGetQuery({});
+  const { mutate, isLoading, data, isError } = UseGetQuery<
+    PayloadSchema,
+    PostSchema
+  >({ url: process.env.NEXT_PUBLIC_ASK_WHILE!! });
 
   useEffect(() => {
     setinputs(qustionMessage.slice(2));
@@ -51,13 +54,15 @@ export default function RightPart({ person }: Right) {
     ]);
     if (inputs.length > 1) {
       mutate({
-        apiKey: person.apiKey,
-        isArabic: person.isArabic,
-        isContentCreator: person.isContentCreator,
-        isShort: true,
-        query: inputs,
-        userId: "105962983257369026275",
-        isOpenAi: false,
+        data: {
+          apiKey: person.apiKey,
+          isArabic: person.isArabic,
+          isContentCreator: person.isContentCreator,
+          isShort: true,
+          query: inputs,
+          userId: "105962983257369026275",
+          isOpenAi: false,
+        },
       });
     }
     setinputs("");

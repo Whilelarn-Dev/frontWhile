@@ -1,17 +1,21 @@
+import Chat from "./components/chat/Chat";
 import FirstPage from "./components/first/FirstPage";
+import FirstHeaders from "./components/headers/FirstHeaders";
 import SecondPage from "./components/second/SecondPage";
-import ThirdPage from "./components/third/Third";
+import Third from "./components/third/Third";
 export default function Home(): JSX.Element {
   return (
-    <div className="overflow-x-hidden bg-whileWhite ">
-      <main className="bg-[#fff5d7] h-min-screen w-screen">
+    <div className="overflow-x-hidden ">
+      <FirstHeaders></FirstHeaders>
+      <main id="Home" className="h-min-screen w-screen">
         <FirstPage />
+        <Chat></Chat>
       </main>
-      <main className="bg-[#fff5d7] w-screen">
+      <main id="Features" className=" w-screen">
         <SecondPage></SecondPage>
       </main>
-      <main className="bg-[#fff5d7] w-screen">
-        <ThirdPage />
+      <main id="Case Studies" className=" w-screen">
+        <Third></Third>
       </main>
     </div>
   );

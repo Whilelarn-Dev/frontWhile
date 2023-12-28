@@ -1,102 +1,46 @@
-import Image from "next/image";
-import cross from "@/app/svg/delete.png";
-import { Icon } from "@mdi/react";
-import { mdiClockOutline, mdiStar, mdiLightningBolt } from "@mdi/js";
-import Iframe from "react-iframe";
-import first from "@/app/svg/firstDealog.jpeg";
-import Link from "next/link";
+const features = [
+  " Embeds ChatGPT inside Your Website: Your website will have a chat widget that is supported by ChatGPT, and the answers will be based on the information available on your website.",
+
+  "Connects Any Data (Words, PDFs, TXT, etc.): Every business has information available on websites, but sometimes you need to create more ways to explain your services, like user guides or FAQs. All of these files can also be connected to ChatGPT giving the bot more ways to answer.",
+
+  "Multi-Language Support, Including Arabic: As an Arab from the Middle East, I know how much Arabic is a beautiful language and hard for machines to understand. With our solution, and ChatGPT's capability, we fully support Arabic language reading and writing.",
+
+  "Regular Updates: Every sustainable business grows, and with growth, you add more information to your website, such as a new product, course, event, etc. We can provide a way for you to update the bots knowledge with all the new information you have.",
+
+  "Insightful Analytics: We can generate a report that contains all the questions been asked to our ChatGPT-based bot, and send you a report with the question, answer, and which user asked it. This will be a good way for your business to reflect.",
+
+  "Suggested Questions: Users often don't know what they want. With our AI-suggested questions, we can steer the conversation in a way to tell the user what they need to find with ease.",
+
+  "Access to API: Maybe you are a big enterprise with a rich website, and you want to access our service from multiple places, like a mobile app or a desktop app. We can provide access to our API and offer the service anytime, anywhere.",
+
+  "Tech Support: Tech stuff can be overwhelming. We will guide you and help you install the service, answer your questions, and take care of you.",
+];
+
 export default function SecondPage() {
   return (
     <>
-      <main
-        className="space-y-4 md:space-y-0 md:flex md:justify-center
-      md:mt-8
-      mt-4
-        md:items-center md:px-14 px-5"
-      >
-        <div className="flex-1">
-          <h2 className="md:text-5xl text-center text-2xl font-merriweather font-bold">
-            {" "}
-            Replace User Guides & FAQs
-          </h2>
-          <p className="text-lg md:text-3xl text-center font-merriweather">
-            Connect any PDF or any data to ChatGPT&apos;s brain, and let user
-            chat with it
-          </p>
-          <ul
-            className="text-lg md:text-2xl font-merriweather
-           text-gray-900 space-y-1 md:space-y-3"
-          >
-            <li className="flex items-center gap-3">
-              <div className="relative w-4 h-4">
-                <Image src={cross} alt="cross"></Image>
-              </div>
-              No need for FAQs
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="relative w-4 h-4">
-                <Image src={cross} alt="cross"></Image>
-              </div>
-              No need for big User guids
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdiClockOutline}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="green"
-              />
-              Available 24/7
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdiStar}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="#ffc107"
-              />
-              The ulltimate customer server
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdiLightningBolt}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="#ffc107"
-              />
-              Faster access to information
-            </li>
-          </ul>
+      <div>
+        <div className="font-bold  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:p-7 lg:p-5 p-3">
+          Enter the New Era of AI: Empower Your Business with ChatGPT's Advanced
+          Capabilities
         </div>
-        <div className="flex-1">
-          <div
-            className="relative
-          h-full
-           h-max-[200px] md:h-max-[350px]
-            w-max-[200px] w-full md:w-max-[600px] mb-5"
-          >
-            <Link
-              href={"https://www.youtube.com/watch?v=3gb3LjPgGNg"}
-              target="_blank"
+        <div className="xl:text-xl lg:text-lg md:text-base text-sm text-center xl:p-7 lg:p-5 p-3 text-gray-700">
+          Unlock New Possibilities in Customer Service and Data Management with
+          Our Gen-AI Technology!
+        </div>
+        <div className="flex flex-wrap justify-center gap-5 xl:p-4 lg:p-2 p-1 md:space-y-0 space-y-4">
+          {features.map((ele, idx) => (
+            <div
+              key={idx}
+              className="w-full bg-white shadow-lg rounded-lg md:w-1/2 lg:w-1/3 xl:w-1/4 pt-5 px-3 pb-2"
             >
-              <Image src={first} alt="first image"></Image>
-            </Link>
-          </div>
+              <div className=" font-bold text-lg text-gray-700">
+                {ele.split(":")[0] + ":"}
+              </div>
+              <div className=" text-sm text-gray-600">{ele.split(":")[1]}</div>
+            </div>
+          ))}
         </div>
-      </main>
-      <div className=" w-full items-center h-[88px] mt-5 md:mt-5 bg-whileRed p-2 flex justify-between">
-        <h2 className="text-whileWhite text-4xl font-merriweather font-bold ">
-          Case Studies-2
-        </h2>
       </div>
     </>
   );

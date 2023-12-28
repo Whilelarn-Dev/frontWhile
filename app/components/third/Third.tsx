@@ -1,98 +1,41 @@
-import Image from "next/image";
-import cross from "@/app/svg/delete.png";
-import { Icon } from "@mdi/react";
-import { mdiClockOutline } from "@mdi/js";
-import { mdilMagnify, mdilMessageText } from "@mdi/light-js";
-import Iframe from "react-iframe";
-import second from "@/app/svg/secondDealog.jpeg";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import InputsLinks from "../first/InputsLinks";
+const steps = [
+  "Add your website link : Provide us with your website link, we will read the content on your website, then connect it to ChatGPT.",
+  "Book a meeting : We will arrange a free consultation to understand your business needs and give you your own free demo to experience firsthand.",
+
+  "Receive your widget : Your customized widget will be prepared and ready. We'll guide you step by step in adding it to your website with ease.",
+];
 export default function ThirdPage() {
   return (
     <>
-      <main
-        className="space-y-4 md:space-y-0 md:flex md:justify-center
-      md:mt-8
-      mt-4 mb-20
-        md:items-center md:px-14 px-5"
-      >
-        <div className="flex-1">
-          <h2 className="md:text-5xl text-center text-2xl font-merriweather font-bold">
-            {" "}
-            AI-Search is extermely smart
-          </h2>
-          <p className="text-lg md:text-3xl mt-1 text-center font-merriweather">
-            Users can use ChatGPT&apos;s brain, to help them take decisions
-          </p>
-          <ul
-            className="text-lg md:text-2xl font-merriweather
-           text-gray-900 space-y-1 md:space-y-3"
-          >
-            <li className="flex items-center gap-3">
-              <div className="relative w-4 h-4">
-                <Image src={cross} alt="cross"></Image>
-              </div>
-              No need for advanced search
-            </li>
-            <li className="flex items-center gap-3">
-              <div className="relative w-4 h-4">
-                <Image src={cross} alt="cross"></Image>
-              </div>
-              No need for database
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdiClockOutline}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="green"
-              />
-              Available 24/7
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdilMagnify}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="#ffc107"
-              />
-              Search on meaning not keywords matching
-            </li>
-            <li className="flex items-center gap-2">
-              <Icon
-                path={mdilMessageText}
-                title="clock"
-                size={1}
-                horizontal
-                vertical
-                rotate={180}
-                color="#ffc107"
-              />
-              Chatting instesd of browsing!.
-            </li>
-          </ul>
+      <div>
+        {" "}
+        <div className="font-bold mt-12  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:py-7 lg:py-5 py-3 xl:px-80 lg:px-60 md:px-40 px-5">
+          Follow <span className="text-whileRed">These Easy Steps</span> to
+          Seamlessly Connect ChatGPT to Your Website Embrace the Future and Ride
+          the AI Wave!
         </div>
-        <div className="flex-1">
-          <div
-            className="relative
-          h-full
-           h-max-[200px] md:h-max-[350px]
-            w-max-[200px] w-full md:w-max-[600px] mb-5"
-          >
-            <Link
-              href={"https://www.youtube.com/watch?v=M8IXskHyTIc"}
-              target="_blank"
+        <div className="flex justify-center mt-4 items-baseline gap-5 xl:p-4 lg:p-2 p-1 md:space-y-0 space-y-4">
+          {steps.map((ele, idx) => (
+            <div
+              key={idx}
+              className="text-base rounded-lg h-full p-3 bg-white shadow-lg md:text-lg text-gray-750 w-full font-thin max-w-[300px] ml-5 mt-5 md:mt-8"
             >
-              <Image src={second} alt="first image"></Image>
-            </Link>
-          </div>
+              <div className="bg-whileRed shadow rounded  flex justify-center items-center text-white w-fit px-3 py-1 mb-2">
+                {idx + 1}
+              </div>
+              <div className="font-bold">{ele.split(":")[0]}</div>
+              <div className="mb-2">{ele.split(":")[1]}</div>
+              {idx === 0 ? (
+                <InputsLinks key={idx} valus={1} />
+              ) : idx == 1 ? (
+                <Button>Book a meeting</Button>
+              ) : null}
+            </div>
+          ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

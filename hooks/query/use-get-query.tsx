@@ -1,36 +1,44 @@
 "use client";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { toast } from "@/components/ui/use-toast";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { useRouter } from "next/navigation";
-import { PayloadSchema, PostSchema } from "@/type/postType";
 
+interface Payload<T> {
+  data: T;
+}
 interface UseGetQueryProps {
   onSuccessMessage?: string;
   onSuccessDescription?: string;
   onErrorMessage?: string;
   onErrorDescription?: string;
+  url: string;
 }
 
-const UseGetQuery = ({
+function UseGetQuery<T, R>({
   onErrorMessage,
   onSuccessDescription,
   onSuccessMessage,
   onErrorDescription,
-}: UseGetQueryProps) => {
+  url,
+}: UseGetQueryProps) {
   const router = useRouter();
   return useMutation({
-    mutationFn: async (payload: PayloadSchema) => {
-      const { data } = await axios.post(
-        "https://whilelearn.onrender.com/askWhilelearn",
-        payload,
-      );
+    mutationFn: async (payload: Payload<T>) => {
+      const { data } = await axios.post<R>(url, payload.data);
 
       await router.refresh();
-      return data as PostSchema;
+      return data;
     },
 
     onError: (error) => {
+      if (error instanceof Error) {
+        return toast({
+          title: "ops... some thing want wrong",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
       return toast({
         title: "ops... some thing want wrong",
         description: "please try later",
@@ -38,5 +46,5 @@ const UseGetQuery = ({
       });
     },
   });
-};
+}
 export default UseGetQuery;
