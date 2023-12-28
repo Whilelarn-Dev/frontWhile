@@ -9,7 +9,7 @@ const features = [
 
   "Insightful Analytics: We can generate a report that contains all the questions been asked to our ChatGPT-based bot, and send you a report with the question, answer, and which user asked it. This will be a good way for your business to reflect.",
 
-  "Suggested Questions: Users often don't know what they want. With our AI-suggested questions, we can steer the conversation in a way to tell the user what they need to find with ease.",
+  "Suggested Questions: Users often dont know what they want. With our AI-suggested questions, we can steer the conversation in a way to tell the user what they need to find with ease.",
 
   "Access to API: Maybe you are a big enterprise with a rich website, and you want to access our service from multiple places, like a mobile app or a desktop app. We can provide access to our API and offer the service anytime, anywhere.",
 
@@ -21,7 +21,7 @@ export default function SecondPage() {
     <>
       <div>
         <div className="font-bold  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:p-7 lg:p-5 p-3">
-          Enter the New Era of AI: Empower Your Business with ChatGPT's Advanced
+          Enter the New Era of AI: Empower Your Business with ChatGPTs Advanced
           Capabilities
         </div>
         <div className="xl:text-xl lg:text-lg md:text-base text-sm text-center xl:p-7 lg:p-5 p-3 text-gray-700">
