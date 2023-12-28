@@ -37,9 +37,14 @@ export default function FirstPage() {
         <InputsLinks valus={0}></InputsLinks>
       </div>
       {/* right part */}
-      <div className="hidden lg:block lg:flex-1 p-20">
-        <div className="relative w-full h-full ">
-          <Image alt="demo" src={"/firstpage.jpeg"} fill></Image>
+      <div className="hidden lg:flex-1 lg:flex justify-center p-14">
+        <div className="relative">
+          <Image
+            alt="demo"
+            src={"/firstpage.jpeg"}
+            width={300}
+            height={300}
+          ></Image>
         </div>
       </div>
     </div>

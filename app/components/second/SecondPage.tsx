@@ -34,6 +34,10 @@ export default function SecondPage() {
               key={idx}
               className="w-full bg-white shadow-lg rounded-lg md:w-1/2 lg:w-1/3 xl:w-1/4 pt-5 px-3 pb-2"
             >
+              <div className="text-center text-white h-fit w-fit bg-whileRed px-3 py-1 mb-1 rounded-md shadow-md">
+                {idx + 1}
+              </div>
+
               <div className=" font-bold text-lg text-gray-700">
                 {ele.split(":")[0] + ":"}
               </div>

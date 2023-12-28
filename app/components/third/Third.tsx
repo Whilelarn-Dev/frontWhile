@@ -9,20 +9,20 @@ const steps = [
 export default function ThirdPage() {
   return (
     <>
-      <div>
+      <div className="">
         {" "}
         <div className="font-bold mt-12  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:py-7 lg:py-5 py-3 xl:px-80 lg:px-60 md:px-40 px-5">
           Follow <span className="text-whileRed">These Easy Steps</span> to
           Seamlessly Connect ChatGPT to Your Website Embrace the Future and Ride
           the AI Wave!
         </div>
-        <div className="flex justify-center mt-4 items-baseline gap-5 xl:p-4 lg:p-2 p-1 md:space-y-0 space-y-4">
+        <div className="flex flex-col md:flex-row items-center justify-center mt-4 md:items-baseline gap-5 xl:p-4 lg:p-2 p-1 md:space-y-0 space-y-4">
           {steps.map((ele, idx) => (
             <div
               key={idx}
               className="text-base rounded-lg h-full p-3 bg-white shadow-lg md:text-lg text-gray-750 w-full font-thin max-w-[300px] ml-5 mt-5 md:mt-8"
             >
-              <div className="bg-whileRed shadow rounded  flex justify-center items-center text-white w-fit px-3 py-1 mb-2">
+              <div className="bg-whileRed shadow rounded flex justify-center items-center text-white w-fit px-3 py-1 mb-2">
                 {idx + 1}
               </div>
               <div className="font-bold">{ele.split(":")[0]}</div>
@@ -30,7 +30,9 @@ export default function ThirdPage() {
               {idx === 0 ? (
                 <InputsLinks key={idx} valus={1} />
               ) : idx == 1 ? (
-                <Button>Book a meeting</Button>
+                <Button className="bg-whileRed hover:bg-whileRed/95">
+                  Book a meeting
+                </Button>
               ) : null}
             </div>
           ))}
