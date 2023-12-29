@@ -16,7 +16,7 @@ export default function Chat() {
         <Bot size={"40px"}></Bot>
       </Button>
       {open ? (
-        <div className="fixed bottom-20 right-28 z-50 bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[450px] h-[550px]">
+        <div className="fixed bottom-20 lg:right-28 right-2 z-50 bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[400px] h-[550px]">
           <div className="bg-whileRed h-20 flex justify-center items-center">
             <div
               onClick={() => setopen(false)}
