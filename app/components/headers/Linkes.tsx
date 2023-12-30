@@ -10,6 +10,7 @@ const links = [
   {
     name: "Case Studies",
   },
+  { name: "Pricing" },
   {
     name: "Live Demo",
   },
