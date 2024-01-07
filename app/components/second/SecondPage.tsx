@@ -1,16 +1,12 @@
 const features = [
-  " Can I provide training data without web pages or files : Yes, input raw text content for training.",
-  " Can I upload syllabus or user guides to the bot : Yes, based on your plan, file upload is allowed.",
-  " Plans for agencies to provide chatbots to clients: Yes, for details, contact us via email.",
-  " Is a demo available for me to try : Yes, experience the live demo at whilelearn.com/#Live%20Demo.",
-  " What content is suitable for training the chatbot: Use any content; more content improves responses.",
-  " Is the chatbot automatically retrained on website changes : Currently, manual retraining is needed; automation is in progress.",
-  " Can I upload files to train the chatbot : Yes, upload CSV/TXT/PDF/DOCX/MD files based on plan limits.",
-  " Files exceed 10 MB. What should I do : Contact us at m.imam@whilelearn.com for a solution.",
-  " How to integrate the chatbot into my website : Each chatbot has a unique URL; use the provided code or link.",
-  "How do I train the chatbot : Train by adding a website link, sitemap link, Zendesk Help Center Link, or Gitbook link. Upload CSV/TXT/PDF/DOCX/MD files.",
-  " How long does the training process take : Training time varies based on the number of pages; typically, it's completed within a few minutes.",
-  "How can I get in touch with you : Feel free to reach out to us at m.imam@whilelearn.com.",
+  " Embeds ChatGPT inside Your Website : Chat widget supported by ChatGPT for website interaction.Answers based on the information available on the website.",
+  " Connects Any Data (Words, PDFs, TXT, etc.) : Enables connection of additional files like user guides or FAQs.Expands the bot's knowledge for comprehensive responses.",
+  "Multi-Language Support, Including Arabic : Fully supports reading and writing in the Arabic language.Addresses the challenge of understanding Arabic for machines",
+  " Regular Updates:Provides a mechanism for updating the bot's knowledge.Accommodates growth and addition of new information to the website.",
+  "Insightful Analytics : Generates a detailed report on user queries.Offers insights into questions, answers, and user interactions.",
+  "Suggested Questions : Utilizes AI-suggested questions to guide user conversations.Facilitates user discovery of relevant information with ease.",
+  " Access to API : Offers API access for enterprises with diverse service needs.Ensures the availability of the service across multiple platforms.",
+  "Tech Support:Assists with installation and addresses technical queries.Ensures a smooth experience for users integrating the service.",
 ];
 
 export default function SecondPage() {
