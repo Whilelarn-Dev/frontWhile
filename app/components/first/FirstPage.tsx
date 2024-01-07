@@ -27,7 +27,7 @@ export default function FirstPage() {
           {checkList.map((ele, index) => (
             <span
               key={index}
-              className="text-sm md:text-base gap-1 items-center flex w-fit h-fit"
+              className="text-xs lg:text-sm gap-1 items-center flex w-fit h-fit"
             >
               <CheckCircle color="#D74148" />
               {ele}

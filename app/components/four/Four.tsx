@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Chat from "../chat/Chat";
 export default function Four() {
   return (
     <div className="flex items-center flex-col lg:flex-row mt-12 lg:mt-32">
@@ -9,14 +9,7 @@ export default function Four() {
       </div>
       {/* right part */}
       <div className=" lg:flex-1 lg:flex justify-center p-5 lg:p-14">
-        <div className="relative">
-          <Image
-            alt="demo"
-            src={"/firstpage.jpeg"}
-            width={300}
-            height={300}
-          ></Image>
-        </div>
+        <Chat live={true}></Chat>
       </div>
     </div>
   );

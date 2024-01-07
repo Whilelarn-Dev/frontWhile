@@ -1,19 +1,16 @@
 const features = [
-  " Embeds ChatGPT inside Your Website: Your website will have a chat widget that is supported by ChatGPT, and the answers will be based on the information available on your website.",
-
-  "Connects Any Data (Words, PDFs, TXT, etc.): Every business has information available on websites, but sometimes you need to create more ways to explain your services, like user guides or FAQs. All of these files can also be connected to ChatGPT giving the bot more ways to answer.",
-
-  "Multi-Language Support, Including Arabic: As an Arab from the Middle East, I know how much Arabic is a beautiful language and hard for machines to understand. With our solution, and ChatGPT's capability, we fully support Arabic language reading and writing.",
-
-  "Regular Updates: Every sustainable business grows, and with growth, you add more information to your website, such as a new product, course, event, etc. We can provide a way for you to update the bots knowledge with all the new information you have.",
-
-  "Insightful Analytics: We can generate a report that contains all the questions been asked to our ChatGPT-based bot, and send you a report with the question, answer, and which user asked it. This will be a good way for your business to reflect.",
-
-  "Suggested Questions: Users often dont know what they want. With our AI-suggested questions, we can steer the conversation in a way to tell the user what they need to find with ease.",
-
-  "Access to API: Maybe you are a big enterprise with a rich website, and you want to access our service from multiple places, like a mobile app or a desktop app. We can provide access to our API and offer the service anytime, anywhere.",
-
-  "Tech Support: Tech stuff can be overwhelming. We will guide you and help you install the service, answer your questions, and take care of you.",
+  " Can I provide training data without web pages or files : Yes, input raw text content for training.",
+  " Can I upload syllabus or user guides to the bot : Yes, based on your plan, file upload is allowed.",
+  " Plans for agencies to provide chatbots to clients: Yes, for details, contact us via email.",
+  " Is a demo available for me to try : Yes, experience the live demo at whilelearn.com/#Live%20Demo.",
+  " What content is suitable for training the chatbot: Use any content; more content improves responses.",
+  " Is the chatbot automatically retrained on website changes : Currently, manual retraining is needed; automation is in progress.",
+  " Can I upload files to train the chatbot : Yes, upload CSV/TXT/PDF/DOCX/MD files based on plan limits.",
+  " Files exceed 10 MB. What should I do : Contact us at m.imam@whilelearn.com for a solution.",
+  " How to integrate the chatbot into my website : Each chatbot has a unique URL; use the provided code or link.",
+  "How do I train the chatbot : Train by adding a website link, sitemap link, Zendesk Help Center Link, or Gitbook link. Upload CSV/TXT/PDF/DOCX/MD files.",
+  " How long does the training process take : Training time varies based on the number of pages; typically, it's completed within a few minutes.",
+  "How can I get in touch with you : Feel free to reach out to us at m.imam@whilelearn.com.",
 ];
 
 export default function SecondPage() {
@@ -21,8 +18,8 @@ export default function SecondPage() {
     <>
       <div>
         <div className="font-bold  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:p-7 lg:p-5 p-3">
-          Enter the New Era of AI: Empower Your Business with ChatGPTs Advanced
-          Capabilities
+          Enter the New Era of AI: Empower Your Business with ChatGPT&apos;s
+          Advanced Capabilities
         </div>
         <div className="xl:text-xl lg:text-lg md:text-base text-sm text-center xl:p-7 lg:p-5 p-3 text-gray-700">
           Unlock New Possibilities in Customer Service and Data Management with
@@ -34,7 +31,7 @@ export default function SecondPage() {
               key={idx}
               className="w-full bg-white shadow-lg rounded-lg md:w-1/2 lg:w-1/3 xl:w-1/4 pt-5 px-3 pb-2"
             >
-              <div className="text-center text-white h-fit w-fit bg-whileRed px-3 py-1 mb-1 rounded-md shadow-md">
+              <div className="text-center text-white h-fit w-fit bg-whileRed px-3 py-1 mb-2 rounded-md shadow-md">
                 {idx + 1}
               </div>
 

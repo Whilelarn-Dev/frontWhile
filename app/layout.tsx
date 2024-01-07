@@ -1,8 +1,9 @@
-import "./globals.css";
-import type { Metadata } from "next";
-import { Eczar } from "next/font/google";
 import QueryProvider from "@/components/provider/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
+import type { Metadata } from "next";
+import { Eczar } from "next/font/google";
+import FirstHeaders from "./components/headers/FirstHeaders";
+import "./globals.css";
 
 const inter = Eczar({
   subsets: ["latin"],
@@ -27,15 +28,15 @@ export default function RootLayout({
     <html
       lang="en"
       className="scrollbar scrollbar-w-2  scrollbar-track-whileWhhite
-     scrollbar-thumb-slate-400/20 scrollbar-thumb-rounded-xl bg-whileWhite"
+     scrollbar-thumb-slate-400/20 scrollbar-thumb-rounded-xl "
     >
-          <QueryProvider>
-      <body className={inter.className}>{children}
-      <Toaster />
-      </body>
+      <QueryProvider>
+        <body className={inter.className}>
+          <FirstHeaders></FirstHeaders>
+          {children}
+          <Toaster />
+        </body>
       </QueryProvider>
-
-
     </html>
   );
 }

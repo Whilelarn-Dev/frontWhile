@@ -1,6 +1,6 @@
-export function formatText(text: string | undefined): JSX.Element {
+export function formatText(text: string | undefined, limit = false): JSX.Element {
   if (!text) return <div></div>;
-  // return <div>{text}</div>;
+  if(limit) text = text.substring(0, 200);
   const formattedText = text.replace(/\n/g, " <br/>").split(" ");
 
   const formated = formattedText.map((text, index) => {

@@ -8,19 +8,26 @@ const links = [
     name: "Features",
   },
   {
-    name: "Case Studies",
+    name: "Install",
   },
-  { name: "Pricing" },
+  { name: "pricing" },
   {
     name: "Live Demo",
   },
+  {
+    name: "About",
+  }
 ];
 export default function Linkes() {
   return (
     <div className="hidden gap-10 lg:flex">
       {links.map((ele, idx) => (
         <Link
-          href={`#${ele.name}`}
+          href={`${
+            ele.name === "pricing" || ele.name === "About"
+              ? `/${ele.name}`
+              : `/#${ele.name}`
+          }`}
           key={idx}
           className="cursor-pointer font-semibold text-gray-700"
         >
