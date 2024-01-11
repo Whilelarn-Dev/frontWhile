@@ -1,4 +1,5 @@
 import { FirebaseUser, auth } from "@/lib/firebase";
+import { WebPostResponseType } from "@/type/WebPostType";
 import { MessageSchema } from "@/type/postType";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { create } from "zustand";
@@ -86,3 +87,12 @@ export const useQustionStore = create<MessageStoreType>((set) => ({
   addMessage: (message: string) =>
     set((state) => ({ message: message })),
 }));
+
+type testFunc = {
+  test:WebPostResponseType
+  add: (m:string) => void
+}
+// export const useTestFunc = create<testFunc>((set) => ({
+//   test:{},
+//   add: (m:string) => set({test:{...m}}) 
+// }))

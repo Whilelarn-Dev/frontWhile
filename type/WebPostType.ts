@@ -28,8 +28,7 @@
   // }
 
 const WebPostResponse = z.object({
-  time: z.number(),
-  cost:z.object({}).optional(), // Replace z.any() with a more specific schema if the cost structure is known
+   // Replace z.any() with a more specific schema if the cost structure is known
   search_result: z.string(),
   source: z.string().url(),
   title: z.string(),
