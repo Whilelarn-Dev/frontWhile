@@ -17,6 +17,7 @@ export interface MessagesType {
 }
 const Messages: MessagesType[] = [];
 const lastMessage: string[] = [];
+let questionResults: string[] = [];
 export default function Chat({
   setopen,
   live,
@@ -33,6 +34,8 @@ export default function Chat({
   const onSubmit = async () => {
     setLoading(true);
     setqurey("");
+    questionResults = [];
+    setqustion([]);
     const payload: WebPostType = {
       query: qurey,
       apiKey: "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
@@ -75,12 +78,12 @@ export default function Chat({
       while (true) {
         const { value, done } = await reader.read();
         if (done) {
-          console.log(qustion);   
-          const resultArray = qustion.join(" ").split(">>");
-
-          console.log(resultArray);
+          console.log(qustion);
+          questionResults = qustion.join(" ").split(">>");
+          console.log(questionResults);
 
           setLoading(false);
+          dispatch();
           break;
         }
         let newData = "";
@@ -96,6 +99,7 @@ export default function Chat({
         if (!doneSearch) {
           Messages.at(-1)!.message = Messages.at(-1)!.message + newData;
         } else if (!doneQustion) {
+          console.log("here");
           setqustion((pre) => [...pre, newData]);
         }
 
@@ -151,6 +155,23 @@ export default function Chat({
               <DotSwapper></DotSwapper>
             </div>
           ) : null}
+          {questionResults.map((ele, idx) =>
+            ele.length > 2 ? (
+              <div
+                key={idx}
+                onClick={() => setqurey(ele)}
+                className="w-full flex justify-end p-2 cursor-pointer"
+              >
+                <div
+                  className={`p-2 rounded-md border max-w-[300px] text-sm shadow hover:bg-whileRed/90 bg-whileRed text-white border-whileRed`}
+                >
+                  <div className="font-bold text-base text-center w-full">
+                    {ele}
+                  </div>
+                </div>{" "}
+              </div>
+            ) : null,
+          )}
         </div>
         {/* Chat Footer */}
         <div className="h-[70px] px-3 gap-3 flex items-center">

@@ -1,6 +1,7 @@
 import LogoWhile from "@/components/shared/LogoWhile";
 import LastPart from "./LastPart";
 import Linkes from "./Linkes";
+import HeadModle from './HeadModle';
 
 export default function FirstHeaders() {
   return (
@@ -8,6 +9,7 @@ export default function FirstHeaders() {
       <LogoWhile></LogoWhile>
       <Linkes></Linkes>
       <LastPart></LastPart>
+      <HeadModle></HeadModle>
     </div>
   );
 }

@@ -1,14 +1,27 @@
 "use client";
+import { useOpenModel } from "@/app/store/zustand";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export default function InputsLinks({ valus }: { valus: number }) {
+  const { data, open, setData, setOpen } = useOpenModel();
   return (
     <>
       {valus === 0 ? (
         <div className=" lg:flex gap-2 mt-8 space-y-2 lg:mt-14 lg:space-y-0">
-          <Input placeholder="write website link"></Input>
+          <Input
+            value={data}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                setOpen(true);
+              }
+            }}
+            onChange={(e) => setData(e.target.value)}
+            placeholder="write website link"
+          ></Input>
           <Button
+            onClick={() => setOpen(true)}
             size={"default"}
             className="bg-whileRed  text-base md:text-lg w-full lg:w-96 xl:w-72"
           >
@@ -18,10 +31,21 @@ export default function InputsLinks({ valus }: { valus: number }) {
       ) : (
         <div className=" space-y-2">
           {" "}
-          <Input placeholder="write website link"></Input>
+          <Input
+            value={data}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                setOpen(true);
+              }
+            }}
+            onChange={(e) => setData(e.target.value)}
+            placeholder="write website link"
+          ></Input>
           <Button
+            onClick={() => setOpen(true)}
             size={"default"}
-            className="bg-whileRed hover:bg-whileRed/90 text-base md:text-lg  w-full lg:w-96 xl:w-72"
+            className="bg-whileRed hover:bg-whileRed/90 text-base md:text-lg  w-full"
           >
             Start a free trial
           </Button>

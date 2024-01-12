@@ -92,7 +92,16 @@ type testFunc = {
   test:WebPostResponseType
   add: (m:string) => void
 }
-// export const useTestFunc = create<testFunc>((set) => ({
-//   test:{},
-//   add: (m:string) => set({test:{...m}}) 
-// }))
+ type OpenModelType = {
+  open: boolean;
+  data:string;
+  setOpen: (value: boolean) => void;
+  setData: (value: string) => void;
+ }
+
+ export const useOpenModel = create<OpenModelType>((set) => ({
+  open: false,
+  data: "",
+  setOpen: (value: boolean) => set({ open: value }),
+  setData: (value: string) => set({ data: value }),
+ }))
