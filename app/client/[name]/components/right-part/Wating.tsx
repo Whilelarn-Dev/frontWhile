@@ -26,7 +26,6 @@ const DotSwapper = () => {
 
   return (
     <div className="flex gap-2">
-      {sentences[index]}
 
       <div className="flex gap-3 mt-2">
         <motion.div

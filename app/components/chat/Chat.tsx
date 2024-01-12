@@ -16,8 +16,7 @@ export interface MessagesType {
   qurey: string | null;
 }
 const Messages: MessagesType[] = [];
-const source: string[] = [];
-const title: string[] = [];
+const lastMessage: string[] = [];
 export default function Chat({
   setopen,
   live,
@@ -64,24 +63,23 @@ export default function Chat({
         message: null,
         qurey: qurey,
       });
-      title.push("");
-      source.push("");
 
       Messages.push({
         message: "",
         qurey: null,
       });
-      title.push("");
-      source.push("");
-      setLoading(false);
+      lastMessage.push("");
       let doneSearch = false;
       let doneQustion = false;
       const reader = response.body.getReader();
       while (true) {
         const { value, done } = await reader.read();
         if (done) {
-          console.log("Updated title:", title);
-          console.log("Updated source:", source);
+          console.log(qustion);   
+          const resultArray = qustion.join(" ").split(">>");
+
+          console.log(resultArray);
+
           setLoading(false);
           break;
         }
@@ -91,30 +89,10 @@ export default function Chat({
           doneSearch = true;
         }
         if (newData.includes("&&")) {
-          if (newData.includes("title") && newData.includes("source")) {
-            const arra = newData.split("&&");
-
-            arra.map((ele) => {
-              if (ele.includes("title")) {
-                title[length - 1] = title.at(-1) + ele;
-              }
-              if (ele.includes("source")) {
-                source[length - 1] = source.at(-1) + ele;
-              }
-            });
-          }
-          if (newData.includes("title")) {
-            title[length - 1] = title.at(-1) + newData;
-          }
-          if (newData.includes("source")) {
-            source[length - 1] = source.at(-1) + newData;
-          }
-
+          lastMessage.push(newData);
           continue;
         }
-
         console.log(newData);
-
         if (!doneSearch) {
           Messages.at(-1)!.message = Messages.at(-1)!.message + newData;
         } else if (!doneQustion) {
@@ -153,8 +131,7 @@ export default function Chat({
               {ele.message !== null ? (
                 <ChatPost
                   search={ele}
-                  title={title[idx]}
-                  source={source[idx]}
+                  lastMessage={lastMessage[idx]}
                 ></ChatPost>
               ) : (
                 <div className="w-full flex justify-end p-2">

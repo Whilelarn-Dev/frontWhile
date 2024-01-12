@@ -4,18 +4,17 @@ import { formatText } from "@/lib/TextFormater";
 import Link from "next/link";
 import { useState } from "react";
 import { MessagesType } from "./Chat";
+import { extract } from "./LastExtract";
 
 export default function ChatPost({
   search,
-  source,
-  title,
+  lastMessage,
 }: {
   search: MessagesType;
-  title: string;
-  source: string;
+  lastMessage: string;
 }) {
-  const [Read, setRead] = useState(true);
-
+  // const [Read, setRead] = useState(true);
+  const { source, title } = extract(lastMessage);
   return (
     <>
       <div
