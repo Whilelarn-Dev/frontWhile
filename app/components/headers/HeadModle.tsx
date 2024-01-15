@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Input } from "@/components/ui/input";
-
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default function HeadModle() {
   const { data, setOpen, open, setData } = useOpenModel();
 
@@ -35,7 +35,25 @@ export default function HeadModle() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Book Meeting</AlertDialogAction>
+            <AlertDialogAction
+              disabled={!emailRegex.test(data)}
+              onClick={() => {
+                window.open(
+                  "https://calendly.com/muwaffaqimam/whilelearn-meetings",
+                  "_blank",
+                );
+                setOpen(false);
+              }}
+              className="bg-whileRed hover:bg-white hover:text-whileRed text-white font-bold py-2 px-4 rounded"
+            >
+              {/* <Link
+                target="_blank"
+                href={"https://calendly.com/muwaffaqimam/whilelearn-meetings"}
+                className="bg-whileRed hover:bg-white hover:text-whileRed text-white font-bold py-2 px-4 rounded"
+              > */}
+              Book Meeting
+              {/* </Link> */}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

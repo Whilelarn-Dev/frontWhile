@@ -1,7 +1,9 @@
-import { FirebaseUser, auth } from "@/lib/firebase";
+
+import { FirebaseUser, auth, db } from "@/lib/firebase";
 import { WebPostResponseType } from "@/type/WebPostType";
 import { MessageSchema } from "@/type/postType";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { create } from "zustand";
 
 type CartStore = {
@@ -34,14 +36,40 @@ export const useUserStore = create<UserStoreType>((set) => ({
   googleSignIn: async () => {
     const provader = new GoogleAuthProvider();
     await signInWithPopup(auth, provader)
-      .then((result) => {
+      .then(async (result) => {
+        console.log('====================================');
+        console.log(result);
+        console.log('====================================');
+        const userExists = await getDoc(
+          doc(db, "WebUsers", result.user.email!!),
+        );
+        console.log('====================================');
+        console.log(userExists.data());
+        console.log('====================================');
+        let messagesNumber =100;
+        if (userExists.exists()) {
+          messagesNumber = userExists.data().messages;
+        }
         const user: FirebaseUser = {
           displayName: result.user.displayName,
           email: result.user.email,
           photoURL: result.user.photoURL,
-          uid: result.user.uid,
+          id: result.user.providerData[0].uid,
         };
         window.localStorage.setItem("auth", JSON.stringify(user));
+
+        
+        const userRef = doc(db, "WebUsers", result.user.email!!);
+        setDoc(userRef, {...user,messages:messagesNumber})
+
+
+
+          .then(() => {
+            console.log("User data posted to Firestore");
+          })
+          .catch((error) => {
+            console.error("Error posting user to Firestore:", error);
+          });
         set((state) => ({ user: user }));
       })
       .catch((error) => {
@@ -105,3 +133,18 @@ type testFunc = {
   setOpen: (value: boolean) => set({ open: value }),
   setData: (value: string) => set({ data: value }),
  }))
+
+
+ type MessagesCountStoreType = {
+   count: number;
+   increment: () => void;
+   decrement: () => void;
+   setCount: (value: number) => void;
+ };
+
+ export const useMessagesCountStore = create<MessagesCountStoreType>((set) => ({
+   count: 0,
+   increment: () => set((state) => ({ count: state.count + 1 })),
+   decrement: () => set((state) => ({ count: state.count - 1 })),
+   setCount: (value: number) => set({ count: value }),
+ }));

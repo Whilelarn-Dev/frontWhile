@@ -3,7 +3,6 @@ import InputsLinks from "../first/InputsLinks";
 const steps = [
   "Add your website link : Provide us with your website link, we will read the content on your website, then connect it to ChatGPT.",
   "Book a meeting : We will arrange a free consultation to understand your business needs and give you your own free demo to experience firsthand.",
-
   "Receive your widget : Your customized widget will be prepared and ready. We'll guide you step by step in adding it to your website with ease.",
 ];
 export default function ThirdPage() {
@@ -29,10 +28,6 @@ export default function ThirdPage() {
               <div className="mb-2">{ele.split(":")[1]}</div>
               {idx === 0 ? (
                 <InputsLinks key={idx} valus={1} />
-              ) : idx == 1 ? (
-                <Button className="bg-whileRed hover:bg-whileRed/95">
-                  Book a meeting
-                </Button>
               ) : null}
             </div>
           ))}

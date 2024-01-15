@@ -2,7 +2,6 @@
 
 import { formatText } from "@/lib/TextFormater";
 import Link from "next/link";
-import { useState } from "react";
 import { MessagesType } from "./Chat";
 import { extract } from "./LastExtract";
 
@@ -18,13 +17,8 @@ export default function ChatPost({
   return (
     <>
       <div
-        className={`p-2 rounded-lg m-2 border-b max-w-[300px] border-gray-200  bg-gray-100 shadow`}
+        className={`p-2 rounded-r-md rounded-b-md  m-2  max-w-[300px]   bg-gray-100 `}
       >
-        {title.length > 1 && (
-          <div className="font-bold text-lg text-center w-full">
-            {formatText(title)}
-          </div>
-        )}
         {search.message && search.message.length > 1 && (
           <div className="text-sm">{formatText(search.message)}</div>
         )}
@@ -45,7 +39,7 @@ export default function ChatPost({
             className="text-whileRed"
             rel="noopener noreferrer"
           >
-            {source}
+            {title}
           </Link>
         </div>
       )}

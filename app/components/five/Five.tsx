@@ -8,27 +8,6 @@ const creaters = [
     comment:
       "SiteGPT appears to be first really production ready support solution that allows custom training, while so many others break or simply lack functionality. (we have tested and trialed MANY in the past 3 months)",
   },
-  {
-    name: "Brent Burrows II",
-    work: "Vice President of Retail & Sales at CBS Bahamas",
-    image: "",
-    comment:
-      "Other than the obvious benefits of using SiteGPT, we are getting user feedback/feature requests - it's only day 1 of using the SiteGPT bot.",
-  },
-  {
-    name: "Andres Berlin",
-    work: "Vice President of Retail & Sales at CBS Bahamas",
-    image: "",
-    comment:
-      "We've got the bot dialled in - we're using GPT-4, have an avenue for escalations to Zendesk, and so far I have no complaints.",
-  },
-  {
-    name: "Akhil Kundh",
-    work: "Vice President of Retail & Sales at CBS Bahamas",
-    image: "",
-    comment:
-      "Every now and then, you stumble on a great solution. SiteGPT is like I imagined a chatbot solution could be a few years back.",
-  },
 ];
 export default function Five() {
   return (

@@ -49,22 +49,34 @@ const pricing = [
 
 export default function Question() {
   return (
-    <div className="flex justify-center mt-10 p-10 mb-20">
-      <Tabs defaultValue="account" className="w-full ">
+    <div className="flex  flex-col items-center mt-10 p-10 mb-20">
+      <div className="text-5xl font-bold my-9">FQA</div>
+      <Tabs defaultValue="training" className="w-full ">
         <div className="w-full flex justify-center gap-10 mb-5">
-          <TabsList>
-            <TabsTrigger value="training">
+          <TabsList className="bg-white">
+            <TabsTrigger
+              className="focus:bg-whileRed focus:text-white"
+              value="training"
+            >
               Training and Functionality
             </TabsTrigger>
-            <TabsTrigger value="tecnology">
+            <TabsTrigger
+              className="focus:bg-whileRed focus:text-white"
+              value="tecnology"
+            >
               Technology and Integration
             </TabsTrigger>
-            <TabsTrigger value="pricing">Pricing and Usage</TabsTrigger>
+            <TabsTrigger
+              className="focus:bg-whileRed focus:text-white"
+              value="pricing"
+            >
+              Pricing and Usage
+            </TabsTrigger>
           </TabsList>
         </div>
         <TabsContent
           value="training"
-          className="grid grid-cols-1 md:grid-cols-2"
+          className="grid grid-cols-1 md:grid-cols-2 px-14 gap-10"
         >
           {traning.map((item) => (
             <Accordion key={item} type="single" collapsible>
@@ -77,7 +89,7 @@ export default function Question() {
         </TabsContent>
         <TabsContent
           value="tecnology"
-          className="grid grid-cols-1 md:grid-cols-2"
+          className="grid grid-cols-1 md:grid-cols-2 px-14 gap-10"
         >
           {technology.map((item) => (
             <Accordion key={item} type="single" collapsible>
@@ -90,7 +102,7 @@ export default function Question() {
         </TabsContent>
         <TabsContent
           value="pricing"
-          className="grid grid-cols-1 md:grid-cols-2"
+          className="grid grid-cols-1 md:grid-cols-2 px-14 gap-10"
         >
           {pricing.map((item) => (
             <Accordion key={item} type="single" collapsible>
