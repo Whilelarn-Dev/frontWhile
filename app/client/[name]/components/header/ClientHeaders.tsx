@@ -4,7 +4,6 @@ import {
   useRefreshMessagesStore,
   useUserStore,
 } from "@/app/store/zustand";
-import LogoWhile from "@/components/shared/LogoWhile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -25,8 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { FirebaseUser, auth } from "@/lib/firebase";
-import { ArrowLeft, PlusCircle } from "lucide-react";
-import Link from "next/link";
+import { PlusCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function ClientHeaders({ name }: { name: string }) {
@@ -40,7 +38,7 @@ export default function ClientHeaders({ name }: { name: string }) {
     displayName: null,
     email: null,
     photoURL: null,
-    uid: "",
+    id: "",
   });
   useEffect(() => {
     setmount(true);
@@ -54,7 +52,7 @@ export default function ClientHeaders({ name }: { name: string }) {
     sendActivate.setActivated(true);
   }
   return (
-   <>
+    <>
       <div className="mr-10">
         {authToken && user ? (
           <div className="flex justify-center w-full h-full items-center gap-3 p-5">
