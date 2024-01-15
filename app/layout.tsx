@@ -13,10 +13,25 @@ export const metadata: Metadata = {
   title: "whilelearn",
   description: "",
   keywords: [""],
+  icons: {
+    icon: "/favicon.ico",
+  },
   applicationName: "whilelearn",
   abstract: "",
   publisher: "",
   robots: "index, follow",
+  openGraph: {
+    title: "whilelearn",
+    description: "",
+    url: "https://www.whilelearn.com/",
+    type: "website",
+    images: [
+      {
+        url: "/WhileLearn Logo.png",
+        alt: "whilelearn",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
