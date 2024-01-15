@@ -22,13 +22,15 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     title: "whilelearn",
-    description: "",
+    description: "hoijp jpok,plp mkljlih jkjkjh jljhknj fdtrsres rsrse",
     url: "https://www.whilelearn.com/",
     type: "website",
     images: [
       {
         url: "/WhileLearn Logo.png",
         alt: "whilelearn",
+        width: 800,
+        height: 600,
       },
     ],
   },
