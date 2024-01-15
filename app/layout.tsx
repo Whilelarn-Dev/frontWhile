@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/WhileLearn Logo.png",
-        alt: "whilelearn",
+        alt: "whilelearn,lkhbjk,knjbn",
         width: 800,
         height: 600,
       },
