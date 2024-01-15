@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   publisher: "",
   robots: "index, follow",
   openGraph: {
-    title: "whilelearn",
+    title: "whilelearawsdcsdcsdcsdn",
     description: "hoijp jpok,plp mkljlih jkjkjh jljhknj fdtrsres rsrse",
     url: "https://www.whilelearn.com/",
     type: "website",
