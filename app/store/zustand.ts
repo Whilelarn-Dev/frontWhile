@@ -5,6 +5,7 @@ import { MessageSchema } from "@/type/postType";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { create } from "zustand";
+import { Check } from 'lucide-react';
 
 type CartStore = {
   message: MessageSchema;
@@ -27,25 +28,20 @@ export const useTriggerStore = create<Trigger>((set) => ({
 
 type UserStoreType = {
   user: FirebaseUser | null;
-  googleSignIn: () => void;
+  googleSignIn: (check:boolean) => void;
   googleSignOut: () => void;
 };
 
 export const useUserStore = create<UserStoreType>((set) => ({
   user: null,
-  googleSignIn: async () => {
+  googleSignIn: async (check) => {
     const provader = new GoogleAuthProvider();
     await signInWithPopup(auth, provader)
       .then(async (result) => {
-        console.log('====================================');
-        console.log(result);
-        console.log('====================================');
+       
         const userExists = await getDoc(
           doc(db, "WebUsers", result.user.email!!),
         );
-        console.log('====================================');
-        console.log(userExists.data());
-        console.log('====================================');
         let messagesNumber =100;
         if (userExists.exists()) {
           messagesNumber = userExists.data().messages;
@@ -60,7 +56,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
 
         
         const userRef = doc(db, "WebUsers", result.user.email!!);
-        setDoc(userRef, {...user,messages:messagesNumber})
+        setDoc(userRef, {...user,messages:messagesNumber,check:check})
 
 
 
@@ -148,3 +144,14 @@ type testFunc = {
    decrement: () => set((state) => ({ count: state.count - 1 })),
    setCount: (value: number) => set({ count: value }),
  }));
+
+ type CheckedType = {
+  check: boolean;
+  setCheck: () => void;
+
+ }
+
+ export const useCheck = create<CheckedType>((set) => ({
+  check:false,
+  setCheck:()=>set((state)=>({check:!state.check}))
+ }))

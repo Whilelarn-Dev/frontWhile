@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Bot } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import Chat from "./Chat";
 
@@ -13,9 +13,14 @@ export default function ChatHolder() {
         size={"icon"}
         draggable={true}
         onClick={() => setopen((pre) => !pre)}
-        className="rounded-full h-14 w-14 shadow-xl flex items-center justify-center z-50 bg-whileRed hover:bg-whileRed/90 fixed right-14 bottom-5"
+        className="rounded-full p-2 h-14 w-14 shadow-xl  flex items-center justify-center z-50 bg-whileRed hover:bg-whileRed fixed right-14 bottom-5"
       >
-        <Bot size={"40px"}></Bot>
+        <Image
+          src={"/while/white.png"}
+          width={90}
+          height={90}
+          alt="logo"
+        ></Image>
       </Button>
       {open && <Chat live={false} setopen={setopen}></Chat>}
     </>

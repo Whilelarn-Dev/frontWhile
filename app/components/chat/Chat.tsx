@@ -2,15 +2,17 @@
 import DotSwapper from "@/app/client/[name]/components/right-part/Wating";
 import {
   useActivateStore,
+  useCheck,
   useMessagesCountStore,
   useUserStore,
 } from "@/app/store/zustand";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { db } from "@/lib/firebase";
 import { WebPostType } from "@/type/WebPostType";
-import { UserPostType } from "@/type/fireType";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { XIcon } from "lucide-react";
+import Image from "next/image";
+
 import {
   Dispatch,
   Fragment,
@@ -18,6 +20,7 @@ import {
   useReducer,
   useState,
 } from "react";
+import LogoWhile from "../../../components/shared/LogoWhile";
 import ChatPost from "./ChatPost";
 export interface MessagesType {
   message: string | null;
@@ -40,14 +43,12 @@ export default function Chat({
   const [qustion, setqustion] = useState<string[]>([]);
   const { decrement } = useMessagesCountStore();
   const authStore = useUserStore();
+  const check = useCheck();
   const onSubmit = async () => {
     setLoading(true);
     setqurey("");
     questionResults = [];
     setqustion([]);
-    console.log("====================================");
-    console.log(authStore.user?.id);
-    console.log("====================================");
     const payload: WebPostType = {
       query: qurey,
       apiKey: "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
@@ -132,119 +133,139 @@ export default function Chat({
             }}
             className="text-white absolute top-7 text-lg right-4 cursor-pointer"
           >
-            X
+            <XIcon></XIcon>
           </div>
           <div className="text-white text-3xl">WhileLearn</div>
         </div>
-        {/* Chat Body */}
-        <div className="h-[400px] bg-white overflow-y-auto scrollbar-track-red-200 scrollbar-thumb-red-400 scrollbar-thin">
-          {Messages.map((ele, idx) => (
-            <Fragment key={idx}>
-              {ele.message !== null ? (
-                <ChatPost
-                  search={ele}
-                  lastMessage={lastMessage[idx]}
-                ></ChatPost>
-              ) : (
-                <div className="w-full flex justify-end p-2">
-                  <div
-                    className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm  bg-whileRed text-white`}
-                  >
-                    <div className="font-bold text-base text-center w-full">
-                      {ele.qurey}
-                    </div>
-                  </div>{" "}
-                </div>
-              )}
-            </Fragment>
-          ))}
-          {Loading ? (
-            <div className="p-1 w-full">
-              <DotSwapper></DotSwapper>
-            </div>
-          ) : null}
-          {questionResults.map((ele, idx) =>
-            ele.length > 2 ? (
-              <div
-                key={idx}
-                onClick={() => setqurey(ele)}
-                className="w-full flex justify-end p-2 cursor-pointer"
-              >
-                <div
-                  className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm hover:bg-whileRed/90 bg-whileRed text-white `}
-                >
-                  <div className="font-bold text-base text-center w-full">
-                    {ele}
-                  </div>
-                </div>{" "}
-              </div>
-            ) : null,
-          )}
-        </div>
-        {/* Chat Footer */}
         {sendActivate.activated ? (
-          <div className="h-[70px] px-3 gap-3 flex items-center">
-            <Input
-              placeholder="Type your message"
-              value={qurey}
-              onChange={(e) => setqurey(e.target.value)}
-              className="w-full"
-              onKeyDown={(e) => {
-                if (
-                  e.key === "Enter" &&
-                  qurey.length > 1 &&
-                  qurey.length <= 150 &&
-                  !Loading
-                ) {
-                  onSubmit();
-                }
-              }}
-            ></Input>
-            <Button
-              onClick={() => {
-                onSubmit();
-              }}
-              className="bg-whileRed hover:bg-whileRed/95"
-              disabled={Loading || qurey.length <= 1 || qurey.length > 150}
-            >
-              Ask
-            </Button>
-          </div>
-        ) : (
-          <div className="h-[70px] px-3 gap-3 flex items-center justify-center">
-            <Button
-              onClick={async () => {
-                authStore.googleSignIn();
-                if (authStore.user) {
-                  const fireStoreUser: UserPostType = {
-                    email: authStore.user.email!!,
-                    id: authStore.user.id,
-                    image: authStore.user.photoURL!!,
-                    messages: 100,
-                    name: authStore.user.displayName!!,
-                  };
-                  sendActivate.setActivated(true);
-                  dispatch();
-                  const userExists = await getDoc(
-                    doc(db, "WebUsers", authStore.user.id),
-                  );
-                  if (userExists.exists()) {
-                    return;
+          <>
+            {/* Chat Body */}
+            <div className="h-[400px] bg-white overflow-y-auto scrollbar-track-red-200 scrollbar-thumb-red-400 scrollbar-thin">
+              {Messages.map((ele, idx) => (
+                <Fragment key={idx}>
+                  {ele.message !== null ? (
+                    <ChatPost
+                      search={ele}
+                      lastMessage={lastMessage[idx]}
+                    ></ChatPost>
+                  ) : (
+                    <div className="w-full flex justify-end p-2">
+                      <div
+                        className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm  bg-whileRed text-white`}
+                      >
+                        <div className="font-bold text-base text-center w-full">
+                          {ele.qurey}
+                        </div>
+                      </div>{" "}
+                    </div>
+                  )}
+                </Fragment>
+              ))}
+              {Loading ? (
+                <div className="p-1 w-full">
+                  <DotSwapper></DotSwapper>
+                </div>
+              ) : null}
+              {questionResults.map((ele, idx) =>
+                ele.length > 2 ? (
+                  <div
+                    key={idx}
+                    onClick={() => setqurey(ele)}
+                    className="w-full flex justify-end p-2 cursor-pointer"
+                  >
+                    <div
+                      className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm hover:bg-whileRed/90 bg-whileRed text-white `}
+                    >
+                      <div className="font-bold text-base text-center w-full">
+                        {ele}
+                      </div>
+                    </div>{" "}
+                  </div>
+                ) : null,
+              )}
+            </div>
+            {/* Chat Footer */}
+            <div className="h-[70px] px-3 gap-3 flex items-center">
+              <Input
+                placeholder="Type your message"
+                value={qurey}
+                onChange={(e) => setqurey(e.target.value)}
+                className="w-full"
+                onKeyDown={(e) => {
+                  if (
+                    e.key === "Enter" &&
+                    qurey.length > 1 &&
+                    qurey.length <= 150 &&
+                    !Loading
+                  ) {
+                    onSubmit();
                   }
-                  const userRef = doc(db, "WebUsers", authStore.user.id);
-                  setDoc(userRef, fireStoreUser)
-                    .then(() => {
-                      console.log("User data posted to Firestore");
-                    })
-                    .catch((error) => {
-                      console.error("Error posting user to Firestore:", error);
-                    });
-                }
-              }}
-              className="bg-whileRed hover:bg-whileRed/95 "
-            >
-              Sign In to use the bot
-            </Button>
+                }}
+              ></Input>
+              <Button
+                onClick={() => {
+                  onSubmit();
+                }}
+                className="bg-whileRed hover:bg-whileRed/95"
+                disabled={Loading || qurey.length <= 1 || qurey.length > 150}
+              >
+                Ask
+              </Button>
+            </div>
+          </>
+        ) : (
+          <div>
+            <div className="w-full flex justify-center items-center mt-7">
+              <div className="relative w-24 h-16">
+                <Image
+                  src={"/while/red.png"}
+                  width={100}
+                  height={100}
+                  alt="logo"
+                ></Image>
+              </div>
+            </div>
+            <div className="w-full flex justify-center mt-10">
+              <LogoWhile></LogoWhile>
+            </div>
+            <div className="w-full flex justify-center mt-5 text-black">
+              Ask the bot about the sevice we provide!
+            </div>
+            <div className="flex items-center justify-center mt-12">
+              <Button
+                onClick={async () => {
+                  authStore.googleSignIn(check.check);
+                  if (authStore.user) {
+                    sendActivate.setActivated(true);
+                    setInterval(() => dispatch(), 100);
+                  }
+                }}
+                className="bg-whileRed hover:bg-whileRed/95 "
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative w-6 h-6">
+                    <Image
+                      src={"/icons8-google-50.png"}
+                      alt="google icon"
+                      width={100}
+                      height={100}
+                    ></Image>
+                  </div>
+                  <div> SIGN IN TO START CONVERSATION</div>
+                </div>
+              </Button>
+            </div>
+            <div className="mt-6 flex items-center gap-2 w-full justify-center">
+              <Checkbox
+                className="w-4 h-4"
+                checked={check.check}
+                onCheckedChange={() => check.setCheck()}
+              />
+
+              <div className="text-xs">
+                Receive offers, discount and news on your email?
+              </div>
+            </div>
           </div>
         )}
       </div>

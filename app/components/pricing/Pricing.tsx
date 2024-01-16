@@ -116,7 +116,15 @@ export default function Pricing() {
                 <span className="text-2xl font-bold">${fourthPlan.price}</span>
                 /mo
               </div>
-              <Button className="bg-white text-whileRed hover:text-white border border-whileRed w-full hover:bg-whileRed/90">
+              <Button
+                onClick={async () => {
+                  window.open(
+                    "https://calendly.com/muwaffaqimam/whilelearn-meetings",
+                    "_blank",
+                  );
+                }}
+                className="bg-white text-whileRed hover:text-white border border-whileRed w-full hover:bg-whileRed/90"
+              >
                 Countact us
               </Button>
               <hr />
