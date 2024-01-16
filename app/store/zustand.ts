@@ -5,7 +5,6 @@ import { MessageSchema } from "@/type/postType";
 import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { create } from "zustand";
-import { Check } from 'lucide-react';
 
 type CartStore = {
   message: MessageSchema;
@@ -56,7 +55,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
 
         
         const userRef = doc(db, "WebUsers", result.user.email!!);
-        setDoc(userRef, {...user,messages:messagesNumber,check:check})
+        setDoc(userRef, {...user,messages:messagesNumber,isSubscribed:check})
 
 
 

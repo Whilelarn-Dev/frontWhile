@@ -128,7 +128,7 @@ export default function ClientHeaders({ name }: { name: string }) {
         ) : (
           <Button
             onClick={() => {
-              authStore.googleSignIn();
+             // authStore.googleSignIn();
               if (authStore.user) {
                 setuser(authStore.user);
               }
