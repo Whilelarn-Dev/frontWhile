@@ -1,5 +1,6 @@
 import QueryProvider from "@/components/provider/QueryProvider";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Eczar } from "next/font/google";
 import FirstHeaders from "./components/headers/FirstHeaders";
@@ -74,7 +75,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <FirstHeaders></FirstHeaders>
           {children}
-
+          <Analytics />
           <Toaster />
         </body>
       </QueryProvider>
