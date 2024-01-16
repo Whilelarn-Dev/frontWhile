@@ -54,6 +54,20 @@ export const metadata: Metadata = {
   abstract:
     "Elevate your website experience with ChatGPT integration. Boost user satisfaction, provide seamless customer care, and connect with visitors effortlessly.",
   publisher: "Whilelearn",
+  openGraph: {
+    title: "whilelearn",
+    description:
+      "Elevate your website experience with ChatGPT integration. Boost user satisfaction, provide seamless customer care, and connect with visitors effortlessly.",
+    url: "https://whilelearn.com",
+    siteName: "whilelearn",
+    images: [
+      {
+        url: "/opengraph-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
