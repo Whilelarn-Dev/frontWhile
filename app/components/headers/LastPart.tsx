@@ -1,6 +1,7 @@
 "use client";
 import {
   useActivateStore,
+  useCheck,
   useMessagesCountStore,
   useUserStore,
 } from "@/app/store/zustand";
@@ -26,6 +27,7 @@ export default function LastPart() {
   const authStore = useUserStore();
   const [first, setfirst] = useState(true);
   const { setCount, count } = useMessagesCountStore();
+  const check = useCheck();
   useEffect(() => {
     setmount(true);
     async function hhh() {
@@ -44,7 +46,7 @@ export default function LastPart() {
       }
     }
     hhh();
-  }, [authStore.user,setCount]);
+  }, [authStore.user, setCount]);
   if (!mount) return null;
   const authToken = window.localStorage.getItem("auth");
   if (authToken && first && mount) {
@@ -97,7 +99,7 @@ export default function LastPart() {
           <Button
             className="bg-whileRed text-xs w-fit h-fit md:text-base lg:text-lg hover:bg-whileRed"
             onClick={async () => {
-              authStore.googleSignIn();
+              authStore.googleSignIn(check.check);
               if (authStore.user) {
                 sendActivate.setActivated(true);
                 setInterval(() => dispatch(), 100);
