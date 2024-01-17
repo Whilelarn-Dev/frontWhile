@@ -143,7 +143,7 @@ export default function Chat({
     <>
       <div
         className={`${
-          live ? "" : "fixed bottom-20 lg:right-28 right-2 z-50"
+          live ? "" : "fixed bottom-20 lg:right-28 right-10 z-50"
         } bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[300px] md:w-[400px] h-[550px]`}
       >
         <div className="bg-whileRed h-20 flex justify-center items-center">
