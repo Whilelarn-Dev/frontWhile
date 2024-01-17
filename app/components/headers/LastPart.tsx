@@ -32,16 +32,9 @@ export default function LastPart() {
     setmount(true);
     async function hhh() {
       if (authStore.user?.email) {
-        // const users = await getDocs(collection(db, "WebUsers"));
-        // const hhhs = users.docs.map((doc) => {
-        //   return { ...doc.data(), id: doc.id };
-        // });
         const userExists = await getDoc(
           doc(db, "WebUsers", authStore.user.email),
         );
-        console.log("====================================");
-        console.log(userExists.data());
-        console.log("====================================");
         setCount(userExists.data()?.messages || 0);
       }
     }
@@ -92,12 +85,12 @@ export default function LastPart() {
 
             <div className="flex gap-1 items-center">
               {" "}
-              <div className="text-base md:text-xl">{count} Messages left</div>
+              <div className="text-base md:text-lg">{count} Messages left</div>
             </div>
           </div>
         ) : (
           <Button
-            className="bg-whileRed text-xs w-fit h-fit md:text-base lg:text-lg hover:bg-whileRed"
+            className=" bg-whileRed text-xs w-fit h-fit md:text-base lg:text-lg hover:bg-whileRed"
             onClick={async () => {
               authStore.googleSignIn(check.check);
               if (authStore.user) {
@@ -117,7 +110,7 @@ export default function LastPart() {
             "_blank",
           );
         }}
-        className="text-xs w-fit h-fit bg-white md:text-base lg:text-lg text-whileRed border border-whileRed hover:bg-white hover:border-whileRed hover:text-whileRed"
+        className="hidden md:block text-xs w-fit h-fit bg-white md:text-base lg:text-lg text-whileRed border border-whileRed hover:bg-white hover:border-whileRed hover:text-whileRed"
       >
         Book Meeting
       </Button>

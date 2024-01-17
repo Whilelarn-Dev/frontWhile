@@ -12,7 +12,6 @@ export default function ChatPost({
   search: MessagesType;
   lastMessage: string;
 }) {
-  // const [Read, setRead] = useState(true);
   const { source, title } = extract(lastMessage);
   return (
     <>
@@ -22,14 +21,6 @@ export default function ChatPost({
         {search.message && search.message.length > 1 && (
           <div className="text-sm">{formatText(search.message)}</div>
         )}
-        {/* {search.length > 1 && (
-          <div
-            onClick={() => setRead(!Read)}
-            className="text-sm cursor-pointer hover:text-whileRed hover:underline"
-          >
-            {!Read ? "Read Less" : " read more ..."}
-          </div>
-        )} */}
       </div>
       {source.length > 1 && (
         <div className="border m-1 border-whileRed rounded-lg bg-white text-xs w-fit text-whileRed text-center p-2">

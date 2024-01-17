@@ -1,11 +1,34 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { db } from "@/lib/firebase";
+import { ClientType } from "@/type/clientType";
+import { doc, getDoc } from "firebase/firestore";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Chat from "./Chat";
 
 export default function ChatHolder() {
   const [open, setopen] = useState<boolean>(false);
+  const [clientList, setClientList] = useState<ClientType>();
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const querySnapshot = await getDoc(
+          doc(
+            db,
+            "WebClients",
+            "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
+          ),
+        );
+        setClientList(querySnapshot.data() as ClientType);
+      } catch (error) {
+        console.error("Error fetching clients:", error);
+        // Handle the error appropriately, maybe set an error state
+      }
+    };
+
+    fetchClients();
+  }, []);
 
   return (
     <>
@@ -22,7 +45,7 @@ export default function ChatHolder() {
           alt="logo"
         ></Image>
       </Button>
-      {open && <Chat live={false} setopen={setopen}></Chat>}
+      {open && <Chat client={clientList} live={false} setopen={setopen}></Chat>}
     </>
   );
 }

@@ -8,14 +8,14 @@ import Third from "./components/third/Third";
 export default function Home(): JSX.Element {
   return (
     <div className="overflow-x-hidden ">
-      <main id="Home" className="h-min-screen w-screen">
+      <main id="/" className="h-min-screen w-screen">
         <FirstPage />
         <ChatHolder></ChatHolder>
       </main>
-      <main id="Features" className=" h-full h-min-screen w-screen">
+      <main id="features" className=" h-full h-min-screen w-screen">
         <SecondPage></SecondPage>
       </main>
-      <main id="Install" className="h-full h-min-screen w-screen">
+      <main id="install" className="h-full h-min-screen w-screen">
         <Third></Third>
       </main>
       <main id="Live Demo" className="h-full h-min-screen w-screen">

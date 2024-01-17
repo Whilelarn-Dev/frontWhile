@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Eczar } from "next/font/google";
+import ChatHolder from "./components/chat/ChatHolder";
 import FirstHeaders from "./components/headers/FirstHeaders";
 import "./globals.css";
 
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
     "تكامل البيانات",
     "دعم اللغة العربية",
     "whilelearn",
+    "while learn",
     "ربط موقعك الشخصي مع شات جي بي تي",
     "أربط موقعك الشخص مع ChatGPT",
     "ChatGPT integration",

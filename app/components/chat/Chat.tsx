@@ -13,10 +13,12 @@ import { WebPostType } from "@/type/WebPostType";
 import { XIcon } from "lucide-react";
 import Image from "next/image";
 
+import { ClientType } from "@/type/clientType";
 import {
   Dispatch,
   Fragment,
   SetStateAction,
+  useEffect,
   useReducer,
   useState,
 } from "react";
@@ -32,9 +34,11 @@ let questionResults: string[] = [];
 export default function Chat({
   setopen,
   live,
+  client,
 }: {
   setopen?: Dispatch<SetStateAction<boolean>>;
   live: boolean;
+  client: ClientType | undefined;
 }) {
   const [qurey, setqurey] = useState<string>("");
   const sendActivate = useActivateStore();
@@ -44,6 +48,11 @@ export default function Chat({
   const { decrement } = useMessagesCountStore();
   const authStore = useUserStore();
   const check = useCheck();
+  useEffect(() => {
+    questionResults = client?.questions || [];
+    dispatch();
+  }, [client]);
+
   const onSubmit = async () => {
     setLoading(true);
     setqurey("");
@@ -51,7 +60,9 @@ export default function Chat({
     setqustion([]);
     const payload: WebPostType = {
       query: qurey,
-      apiKey: "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
+      apiKey:
+        client?.apiKey ||
+        "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
       userId: authStore.user?.id || "",
       isOpenAi: true,
       isArabic: false,
@@ -92,18 +103,26 @@ export default function Chat({
         const { value, done } = await reader.read();
         if (done) {
           decrement();
-          questionResults = qustion.join(" ").split(">>");
           setLoading(false);
           dispatch();
           break;
         }
         let newData = "";
         newData = new TextDecoder().decode(value);
-        if (newData.includes(">>")) {
-          doneSearch = true;
-        }
-        if (newData.includes("&&") && newData.includes("||")) {
-          lastMessage.push(newData);
+
+        if (newData.includes("{") && newData.includes("}")) {
+          let firstIndex = newData.indexOf("[") + 1;
+          let lastIndex = newData.indexOf("]");
+          questionResults = newData.substring(firstIndex, lastIndex).split(",");
+
+          let firstIndex2 = newData.indexOf("source") + 10;
+          let lastIndex2 = newData.indexOf("title") - 3;
+
+          lastMessage.push(
+            newData.substring(firstIndex2, lastIndex2) +
+              "000" +
+              newData.substring(lastIndex2 + 12, newData.length - 2),
+          );
           continue;
         }
         if (!doneSearch) {
@@ -116,6 +135,7 @@ export default function Chat({
       }
     } catch (error) {
       console.error("Fetch failed:", error);
+      setLoading(false);
     }
   };
 
@@ -124,7 +144,7 @@ export default function Chat({
       <div
         className={`${
           live ? "" : "fixed bottom-20 lg:right-28 right-2 z-50"
-        } bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[400px] h-[550px]`}
+        } bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[300px] md:w-[400px] h-[550px]`}
       >
         <div className="bg-whileRed h-20 flex justify-center items-center">
           <div
@@ -177,7 +197,7 @@ export default function Chat({
                       className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm hover:bg-whileRed/90 bg-whileRed text-white `}
                     >
                       <div className="font-bold text-base text-center w-full">
-                        {ele}
+                        {ele.replaceAll('"', "")}
                       </div>
                     </div>{" "}
                   </div>
@@ -187,7 +207,7 @@ export default function Chat({
             {/* Chat Footer */}
             <div className="h-[70px] px-3 gap-3 flex items-center">
               <Input
-                placeholder="Type your message"
+                placeholder={client?.hint || "Enter your question"}
                 value={qurey}
                 onChange={(e) => setqurey(e.target.value)}
                 className="w-full"
