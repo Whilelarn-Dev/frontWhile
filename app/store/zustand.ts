@@ -44,6 +44,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
         let messagesNumber =100;
         if (userExists.exists()) {
           messagesNumber = userExists.data().messages;
+          if(messagesNumber<= 0) messagesNumber=0;
         }
         const user: FirebaseUser = {
           displayName: result.user.displayName,
@@ -140,7 +141,7 @@ type testFunc = {
  export const useMessagesCountStore = create<MessagesCountStoreType>((set) => ({
    count: 0,
    increment: () => set((state) => ({ count: state.count + 1 })),
-   decrement: () => set((state) => ({ count: state.count - 1 })),
+   decrement: () => set((state) => ({ count:state.count == 0? 0:state.count - 1 })),
    setCount: (value: number) => set({ count: value }),
  }));
 

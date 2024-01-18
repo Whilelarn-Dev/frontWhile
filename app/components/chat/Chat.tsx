@@ -53,13 +53,13 @@ export default function Chat({
     dispatch();
   }, [client]);
 
-  const onSubmit = async () => {
+  const onSubmit = async (payloadQuery: string) => {
     setLoading(true);
-    setqurey("");
+
     questionResults = [];
     setqustion([]);
     const payload: WebPostType = {
-      query: qurey,
+      query: payloadQuery,
       apiKey:
         client?.apiKey ||
         "Whilelearn-X17GTzdbGFam1vmpvI4YF6Wn6ayLejKPtSgUaXa1AO0",
@@ -69,6 +69,7 @@ export default function Chat({
       isWeb: true,
       isContentCreator: false,
     };
+    setqurey("");
     const requestOptions = {
       method: "POST", // Adjust the method as needed
       headers: {
@@ -88,7 +89,7 @@ export default function Chat({
       }
       Messages.push({
         message: null,
-        qurey: qurey,
+        qurey: payloadQuery,
       });
 
       Messages.push({
@@ -203,7 +204,11 @@ export default function Chat({
                   ele.length > 2 ? (
                     <div
                       key={idx}
-                      onClick={() => setqurey(ele)}
+                      onClick={async () => {
+                        const jjj = ele.replaceAll('"', "");
+
+                        onSubmit(jjj);
+                      }}
                       className="w-fit flex justify-end p-2 shrink-0 cursor-pointer"
                     >
                       <div
@@ -232,13 +237,13 @@ export default function Chat({
                     qurey.length <= 150 &&
                     !Loading
                   ) {
-                    onSubmit();
+                    onSubmit(qurey);
                   }
                 }}
               ></Input>
               <Button
                 onClick={() => {
-                  onSubmit();
+                  onSubmit(qurey);
                 }}
                 className="bg-whileRed hover:bg-whileRed/95"
                 disabled={Loading || qurey.length <= 1 || qurey.length > 150}
