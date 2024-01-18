@@ -185,7 +185,7 @@ export default function Chat({
                       <div
                         className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm  bg-whileRed text-white`}
                       >
-                        <div className="font-bold text-base text-center w-full">
+                        <div className="text-sm text-center w-full">
                           {ele.qurey}
                         </div>
                       </div>{" "}
@@ -207,9 +207,9 @@ export default function Chat({
                       className="w-fit flex justify-end p-2 shrink-0 cursor-pointer"
                     >
                       <div
-                        className={`p-2 rounded-l-md rounded-b-md whitespace-nowrap  text-sm text-whileRed border border-whileRed `}
+                        className={`p-2 rounded-md whitespace-nowrap  text-xs text-whileRed border border-whileRed `}
                       >
-                        <div className="font-bold text-base text-center w-full">
+                        <div className=" text-xs text-center w-full">
                           {ele.replaceAll('"', "")}
                         </div>
                       </div>{" "}

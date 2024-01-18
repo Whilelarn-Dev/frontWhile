@@ -21,9 +21,7 @@ const secondPlanAttrebutes = [
   "50 file uploads",
   "Connect 1 website",
   "Up to 20 MB per file",
-  "Chat export",
   "Regular updates",
-  "API Access",
 ];
 const thirdPlanAttrebutes = [
   "$100/mo",
