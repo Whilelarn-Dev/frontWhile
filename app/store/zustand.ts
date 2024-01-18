@@ -151,6 +151,6 @@ type testFunc = {
  }
 
  export const useCheck = create<CheckedType>((set) => ({
-  check:false,
+  check:true,
   setCheck:()=>set((state)=>({check:!state.check}))
  }))
