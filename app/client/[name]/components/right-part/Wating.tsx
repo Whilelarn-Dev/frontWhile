@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 const DotSwapper = () => {
   // const sentences = [
   //   "Please hold on, your response is on its way...",
@@ -16,22 +15,13 @@ const DotSwapper = () => {
   // ];
 
   return (
-    <div className="flex gap-2">
-
-      <div className="flex gap-3 mt-2">
-        <motion.div
-          initial={{ x: 0 }}
-          animate={{ x: 20 }}
-          transition={{ duration: 1, repeat: Infinity }}
-          className="w-2 h-2 bg-whileRed rounded-full"
-        />
-        <motion.div
-          initial={{ x: 0 }}
-          transition={{ duration: 1, repeat: Infinity }}
-          animate={{ x: -20 }}
-          className="w-2 h-2 bg-blue-700 rounded-full"
-        />
-      </div>
+    <div className="relative h-5 w-5 m-2 animate-bounce">
+      <Image
+        src="/while/red.png"
+        alt="loading"
+        width={100}
+        height={100}
+      ></Image>
     </div>
   );
 };

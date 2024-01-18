@@ -42,12 +42,12 @@ export default function Card() {
             {clientList.map((ele, idx) => {
               return (
                 <CardItem
-                  key={idx}
+                  key={idx} 
                   image={ele.image ? ele.image : ""}
                   firstName={ele.clientName}
                   name={ele.clientName}
                   discreption={ele.hint}
-                  specialize={ele.hint}
+                  specialize={ele.folderName}
                 />
               );
             })}

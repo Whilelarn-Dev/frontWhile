@@ -40,7 +40,7 @@ export default function CardItem({
             {discreption}
           </p>
           <div className="w-full flex mb-7 justify-center">
-            <CardButton name={firstName} />
+            <CardButton name={specialize} />
           </div>
         </div>
       </div>

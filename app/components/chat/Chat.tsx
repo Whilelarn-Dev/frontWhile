@@ -146,7 +146,7 @@ export default function Chat({
           live ? "" : "fixed bottom-20 lg:right-28 right-10 z-50"
         } bg-white border border-whileRed rounded-xl overflow-clip shadow-lg w-[300px] md:w-[400px] h-[550px]`}
       >
-        <div className="bg-whileRed h-20 flex justify-center items-center">
+        <div className="bg-whileRed h-20 flex items-center">
           <div
             onClick={() => {
               setopen && setopen(false);
@@ -155,7 +155,19 @@ export default function Chat({
           >
             <XIcon></XIcon>
           </div>
-          <div className="text-white text-3xl">WhileLearn</div>
+          <div className="bg-white rounded-full ml-7 w-16 h-16 flex justify-center items-center">
+            <div className="relative w-14 h-14 rounded-full bg-white">
+              <Image
+                alt="Display Picture of Andres Berlin"
+                fill
+                src={client?.image || "/while/red.png"}
+                className="w-full h-full object-cover rounded-full"
+              ></Image>
+            </div>
+          </div>
+          <div className="text-white ml-5 text-3xl">
+            {client?.clientName || "WhileLearn"}
+          </div>
         </div>
         {sendActivate.activated ? (
           <>
@@ -186,23 +198,25 @@ export default function Chat({
                   <DotSwapper></DotSwapper>
                 </div>
               ) : null}
-              {questionResults.map((ele, idx) =>
-                ele.length > 2 ? (
-                  <div
-                    key={idx}
-                    onClick={() => setqurey(ele)}
-                    className="w-full flex justify-end p-2 cursor-pointer"
-                  >
+              <div className=" flex overflow-x-auto m-2 scrollbar-thin scrollbar-thumb-red-400 scrollbar-track-red-200">
+                {questionResults.map((ele, idx) =>
+                  ele.length > 2 ? (
                     <div
-                      className={`p-2 rounded-l-md rounded-b-md  max-w-[300px] text-sm hover:bg-whileRed/90 bg-whileRed text-white `}
+                      key={idx}
+                      onClick={() => setqurey(ele)}
+                      className="w-fit flex justify-end p-2 shrink-0 cursor-pointer"
                     >
-                      <div className="font-bold text-base text-center w-full">
-                        {ele.replaceAll('"', "")}
-                      </div>
-                    </div>{" "}
-                  </div>
-                ) : null,
-              )}
+                      <div
+                        className={`p-2 rounded-l-md rounded-b-md whitespace-nowrap  text-sm text-whileRed border border-whileRed `}
+                      >
+                        <div className="font-bold text-base text-center w-full">
+                          {ele.replaceAll('"', "")}
+                        </div>
+                      </div>{" "}
+                    </div>
+                  ) : null,
+                )}
+              </div>
             </div>
             {/* Chat Footer */}
             <div className="h-[70px] px-3 gap-3 flex items-center">

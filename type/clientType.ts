@@ -4,6 +4,7 @@ export const Client = z.object({
   apiKey: z.string(),
   button_color: z.string(),
   clientName: z.string(),
+  folderName: z.string(),
   hint: z.string(),
   id: z.string(),
   image: z.string().optional(),
