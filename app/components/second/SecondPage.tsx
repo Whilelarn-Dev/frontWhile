@@ -12,8 +12,8 @@ const features = [
 export default function SecondPage() {
   return (
     <>
-      <div>
-        <div className="font-bold  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center xl:p-7 lg:p-5 p-3">
+      <div className="mt-14">
+        <div className="font-bold  xl:text-4xl lg:text-3xl md:text-2xl text-xl text-center  xl:p-7 lg:p-5 p-3">
           Enter the New Era of AI: Empower Your Business with ChatGPT&apos;s
           Advanced Capabilities
         </div>

@@ -2,11 +2,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const creaters = [
   {
-    name: "",
+    name: "Taqa Space",
     work: "Founder & CEO",
-    image: "",
+    image:
+      "https://media.licdn.com/dms/image/D4D03AQFIyvEerE4oDg/profile-displayphoto-shrink_800_800/0/1697357069295?e=1710979200&v=beta&t=HqyMTFZXmJ0-i6NhY2D5i-gUFVVNW-el1WB5KtKQ5Rg",
     comment:
-      "appears to be first really production ready support solution that allows custom training, while so many others break or simply lack functionality.",
+      "WhileLearn is a service that we found very useful as a first step when dealing with students who browse our website. It saved us a lot of time",
   },
 ];
 export default function Five() {
@@ -26,7 +27,7 @@ export default function Five() {
         {creaters.map((ele, idx) => (
           <div key={idx} className="flex items-center gap-3 md:w-1/3 ">
             <Avatar className="w-12 h-12 lg:w-24 lg:h-24">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src={ele.image} />
               <AvatarFallback>USERS</AvatarFallback>
             </Avatar>
             <div className="w-full pt-5 px-3 pb-2">
