@@ -2,11 +2,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const creaters = [
   {
-    name: "Christoph C. Cemper",
-    work: "Founder & CEO of AIPRM.com",
+    name: "",
+    work: "Founder & CEO",
     image: "",
     comment:
-      "SiteGPT appears to be first really production ready support solution that allows custom training, while so many others break or simply lack functionality. (we have tested and trialed MANY in the past 3 months)",
+      "appears to be first really production ready support solution that allows custom training, while so many others break or simply lack functionality.",
   },
 ];
 export default function Five() {
