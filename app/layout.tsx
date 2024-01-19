@@ -3,7 +3,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Eczar } from "next/font/google";
-import ChatHolder from "./components/chat/ChatHolder";
 import FirstHeaders from "./components/headers/FirstHeaders";
 import "./globals.css";
 
@@ -56,6 +55,7 @@ export const metadata: Metadata = {
   abstract:
     "Elevate your website experience with ChatGPT integration. Boost user satisfaction, provide seamless customer care, and connect with visitors effortlessly.",
   publisher: "Whilelearn",
+  metadataBase: new URL("http://whilelearn.com"),
   openGraph: {
     title: "whilelearn",
     description:
@@ -84,11 +84,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scrollbar scrollbar-w-2  scrollbar-track-whileWhhite
+      className="scrollbar scrollbar-w-2 scrollbar-track-whileWhhite
      scrollbar-thumb-slate-400/20 scrollbar-thumb-rounded-xl "
     >
       <QueryProvider>
-        <body className={inter.className}>
+        <body className={`${inter.className}`}>
           <FirstHeaders></FirstHeaders>
           {children}
           <Analytics />

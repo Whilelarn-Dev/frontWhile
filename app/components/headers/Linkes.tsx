@@ -26,12 +26,12 @@ export const links = [
 ];
 export default function Linkes() {
   return (
-    <div className="hidden gap-7 lg:flex">
+    <div className="hidden gap-4 xl:gap-7 lg:flex">
       {links.map((ele, idx) => (
         <Link
           href={`${ele.link}`}
           key={idx}
-          className="cursor-pointer font-semibold text-gray-700"
+          className="cursor-pointer text-sm xl:text-base font-semibold text-gray-700"
         >
           {ele.name}
         </Link>

@@ -15,7 +15,11 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      screens: {
+        maxWhile: "1300px",
+      },
       colors: {
         whileRed: "#D74148",
         whileWhite: "#fff5d7",

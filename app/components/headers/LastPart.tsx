@@ -110,7 +110,7 @@ export default function LastPart() {
             "_blank",
           );
         }}
-        className="hidden md:block text-xs w-fit h-fit bg-white md:text-base lg:text-lg text-whileRed border border-whileRed hover:bg-white hover:border-whileRed hover:text-whileRed"
+        className="hidden xl:block text-xs w-fit h-fit bg-white md:text-base lg:text-lg text-whileRed border border-whileRed hover:bg-white hover:border-whileRed hover:text-whileRed"
       >
         Book Meeting
       </Button>

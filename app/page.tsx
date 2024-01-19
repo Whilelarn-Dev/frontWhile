@@ -8,7 +8,7 @@ import Third from "./components/third/Third";
 export default function Home(): JSX.Element {
   return (
     <div className="overflow-x-hidden ">
-      <main id="/" className="h-min-screen w-screen">
+      <main id="/" className="h-full h-min-screen w-screen flex justify-center">
         <FirstPage />
         <ChatHolder></ChatHolder>
       </main>
