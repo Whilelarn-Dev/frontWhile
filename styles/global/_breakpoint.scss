@@ -1,0 +1,41 @@
+$breakpoints:(
+    'medium' : 43.75em, // 700px
+    'large' : 56.25em, // 900px
+    'xlarge' : 75em, // 1200px
+    'xxlarge' : 90em, // 1440px
+);
+
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+        @content;
+    }
+} 
+
+
+$medium-breakpoint: 43.75em;
+$large-breakpoint: 56.25em;
+$xlarge-breakpoint: 75em;
+$xxlarge-breakpoint: 90em;
+@mixin md{
+    @media (max-width: $medium-breakpoint){
+        @content;
+    }
+} 
+
+@mixin lg{
+    @media (max-width: $large-breakpoint){
+        @content;
+    }
+}
+
+@mixin xl{
+    @media (max-width: $xlarge-breakpoint){
+        @content;
+    }
+}
+
+@mixin xxl{
+    @media (max-width: $xxlarge-breakpoint){
+        @content;
+    }
+}

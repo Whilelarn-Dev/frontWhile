@@ -1,0 +1,11 @@
+:root{
+    --primary:#2c6e49;    
+    --secondary:  #adc2b6;
+    --text-primary:#ffffff; 
+    --text-secondry:#898c8f;
+}
+:root:has(.dark){
+    --primary:#FFFFFF;    
+    --secondary:  #FF3B30;
+}
+

@@ -1,0 +1,117 @@
+.Chat{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &__body {
+    width: 100%;
+      max-width: 500px;
+      height: 650px;
+      border:1px solid var(--secondary);
+      padding: 10px;
+      border-radius: 15px;
+      display: inline-block;
+}
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        & > img {
+            width: 90px;
+            height: 55px;
+        }
+    }
+
+    &__saperator{
+        width: 100%;
+        height: 1px;
+        background-color: var(--secondary);
+        margin-top: 10px;
+    }
+
+    &__content{
+        width: 100%;
+        height: 470px;
+        margin-top: 7px;
+        overflow-y: scroll;
+        padding: 5px;
+        @include custom-scrollbar(
+            $width: 12px,
+            $track-color: var(--secondary),
+            $thumb-color: rgb(76, 134, 76),
+            $thumb-border-radius: 20px,
+            $thumb-border-width: none
+          );
+    }
+    &__footer{
+        width: 100%;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+    }
+    .login{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        & > button{
+            background-color: var(--primary);
+            color: white;
+        }
+    }
+    .message{
+        border: 1px solid var(--primary);
+        width: fit-content;
+        padding: 5px;
+        border-radius: 5px;
+        margin-top: 25px;
+        max-width: 85%;
+        direction: rtl;
+        &-receiver{
+            align-self: flex-end;
+        }
+        &-sender{
+            align-self: flex-start;
+            background-color: var(--primary);
+            color: white;
+        }
+         &__holder{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+}
+
+.answer{
+    padding: 5px;
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & >h1{
+            text-align: center;
+            color:white;
+        }
+        & >h3{
+            text-align: center;
+            color: white;
+        }
+        & >p{
+            color: white;
+            text-align: end;
+        }
+    }
+   
+
+
+}

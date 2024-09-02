@@ -18,7 +18,7 @@ const About1 = () => {
         <div className="relative w-full md:4/12 lg:w-4/12 rounded-lg overflow-clip">
           <img
             className="w-full h-full "
-            src="https://media.licdn.com/dms/image/D4E03AQElBI3AUGsJCA/profile-displayphoto-shrink_800_800/0/1686991904384?e=1709164800&v=beta&t=42nLv89JzAhTwzLHyc2gh2VQP0DY7SK4vFFZlGdE5xo"
+            src="/mofi.jpg"
             alt="A group of People"
           />
         </div>

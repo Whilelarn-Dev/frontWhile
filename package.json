@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@ant-design/nextjs-registry": "^1.0.0",
     "@mdi/js": "^7.2.96",
     "@mdi/light-js": "^0.2.63",
     "@mdi/react": "^1.6.1",
@@ -31,7 +32,7 @@
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.1.1",
-    "antd": "^5.12.2",
+    "antd": "^5.19.4",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
@@ -43,11 +44,12 @@
     "formik": "^2.4.5",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.279.0",
-    "next": "^13.5.4",
-    "postcss": "8.4.30",
+    "next": "^14.2.5",
+    "postcss": "^8.4.40",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-iframe": "^1.8.5",
+    "react-toastify": "^10.0.5",
     "sqlite": "^5.0.1",
     "stripe": "^13.10.0",
     "tailwind-merge": "^1.14.0",
@@ -59,9 +61,11 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@types/antd": "^1.0.0",
     "@types/event-source-polyfill": "^1.0.5",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
-    "prisma": "^5.3.1"
+    "prisma": "^5.3.1",
+    "sass": "^1.77.8"
   }
 }

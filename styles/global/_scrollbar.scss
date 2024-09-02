@@ -1,0 +1,38 @@
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background:var(--primary);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(185, 32, 32);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid rgb(78, 76, 76);  /* creates padding around scroll thumb */
+  }
+
+
+
+  @mixin custom-scrollbar(
+  $width: 12px,
+  $track-color: var(--primary),
+  $thumb-color: rgb(185, 32, 32),
+  $thumb-border-radius: 20px,
+  $thumb-border-color: rgb(78, 76, 76),
+  $thumb-border-width: 1px
+) {
+  &::-webkit-scrollbar {
+    width: $width;               /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;    /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;    /* color of the scroll thumb */
+    border-radius: $thumb-border-radius; /* roundness of the scroll thumb */
+    border: $thumb-border-width solid $thumb-border-color; /* creates padding around scroll thumb */
+  }
+}

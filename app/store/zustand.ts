@@ -74,6 +74,7 @@ export const useUserStore = create<UserStoreType>((set) => ({
   },
   googleSignOut: () => {
     signOut(auth);
+    set((state) => ({ user: null }));
   },
 }));
 

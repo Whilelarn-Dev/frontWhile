@@ -1,0 +1,213 @@
+
+@mixin Shadow {  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.07);}
+
+
+@mixin Flex { display: flex; justify-content: center; align-items: center;}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Define the keyframes for the slide-in from the left effect
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+// Define the mixin for the slide-in from the right animation
+@mixin slide-in-from-right($duration: 1s, $timing-function: ease-in-out) {
+  animation-name: slideInFromRight;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: forwards;
+}
+
+// Define the mixin for the slide-in from the left animation
+@mixin slide-in-from-left($duration: 1s, $timing-function: ease-in-out) {
+  animation-name: slideInFromLeft;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: forwards;
+}
+// Define the mixin for the fade-in animation
+@mixin fade-in($duration: 1s, $timing-function: ease-in-out) {
+  animation-name: fadeIn;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: forwards;
+}
+@keyframes heightExpand {
+  from {
+    height: 0;
+    width: 800px;
+  }
+  to {
+    height: var(--final-height);
+    width: 800px;
+  }
+}
+
+// Define the mixin for the height expand animation
+@mixin height-expand($height, $duration: 1s, $timing-function: ease-in-out) {
+  overflow: hidden;
+  --final-height: #{$height};
+  animation-name: heightExpand;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: forwards;
+}
+@keyframes heightAndPositionExpand {
+  from {
+    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  to {
+    height: var(--final-height);
+    top: var(--final-top);
+    transform: translateY(0);
+  }
+}
+
+// Define the mixin for the height and position expand animation
+@mixin height-and-position-expand($height, $top, $duration: 1s, $timing-function: ease-in-out) {
+  overflow: hidden;
+  --final-height: #{$height};
+  --final-top: #{$top};
+  animation-name: heightAndPositionExpand;
+  animation-duration: $duration;
+  animation-timing-function: $timing-function;
+  animation-fill-mode: forwards;
+}
+@mixin Hover { &:hover{    color: var(--secondary); }}
+
+@mixin Hover_outline_characters {
+  &:hover{  text-shadow: 2px 2px  var(--secondary);}}
+
+@mixin underLineText($color1,$color2){
+  background-image: linear-gradient(90deg, $color1 , $color2);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 500ms ease-in-out;
+  &:hover{
+      background-size: 100% 3px;
+
+  }
+}
+.underLineText{
+    background-image: linear-gradient(90deg, var(--primary) , var(--secondary));
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 500ms ease-in-out;
+  &:hover{
+      background-size: 100% 3px;
+
+  }
+}
+
+  @media screen and (max-width: 800px) {
+                .test{
+                  background-color: red;
+                }
+  }
+
+  @mixin Typewriter {
+    // border-right: 5px solid var(--secondary);
+    width: 100%;
+    word-spacing: nowrap;
+    text-wrap: nowrap;
+    overflow: hidden;
+    animation:  typing 6s    ;
+
+  }
+
+  @keyframes  typing {
+    from{
+      width: 0;
+    }
+
+  }
+
+
+
+  @mixin Glitch {
+  letter-spacing: 5px;
+  animation: shift 8s ease-in-out infinite alternate;
+  }
+
+@keyframes shift {
+  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+    transform: skewX(0deg);
+  }
+
+  41% {
+    transform: skewX(10deg);
+  }
+
+  42% {
+    transform: skewX(-10deg);
+  }
+
+  59% {
+    transform: skewX(40deg) skewY(10deg);
+  }
+
+  60% {
+    transform: skewX(-40deg) skewY(-10deg);
+  }
+
+  63% {
+    transform: skewX(10deg) skewY(-5deg);
+  }
+
+  70% {
+    transform: skewX(-50deg) skewY(-20deg);
+  }
+
+  71% {
+    transform: skewX(10deg) skewY(-10deg);
+  }
+}
+
+
+@mixin  Scrollbar($color) {
+  scroll-behavior: smooth;
+  scroll-padding:10rem ;
+  &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background-color: $color;
+      border-radius: 3px; /* Adjust border-radius as needed */
+    }
+  
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background-color: transparent; /* Set to desired background color */
+    }
+  
+    }

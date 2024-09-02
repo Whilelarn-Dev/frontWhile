@@ -21,7 +21,7 @@ export const links = [
   { name: "Clients", link: "/client" },
   {
     name: "About",
-    link: "/about",
+    link: "/About",
   },
 ];
 export default function Linkes() {

@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Eczar } from "next/font/google";
 import FirstHeaders from "./components/headers/FirstHeaders";
 import "./globals.css";
+import '@/styles/styles.scss'
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 
 const inter = Eczar({
   subsets: ["latin"],
@@ -84,15 +86,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scrollbar scrollbar-w-2 scrollbar-track-whileWhhite
-     scrollbar-thumb-slate-400/20 scrollbar-thumb-rounded-xl "
+      className="scrollbar scrollbar-w-2 scrollbar-track-white/20 scrollbar-thumb-slate-400/20 scrollbar-thumb-rounded-xl "
     >
       <QueryProvider>
         <body className={`${inter.className}`}>
+        <AntdRegistry>
           <FirstHeaders></FirstHeaders>
           {children}
           <Analytics />
           <Toaster />
+          </AntdRegistry>
         </body>
       </QueryProvider>
     </html>
