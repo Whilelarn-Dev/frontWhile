@@ -15,7 +15,7 @@ function useAxios() {
 
   const axios = buildAxios.build();
 
-  axios.interceptors.response.use(handleSuccessResponse, handleErrorResponse);
+  axios.interceptors.response.use(handleSuccessResponse);
 
   return axios;
 }

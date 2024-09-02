@@ -1,4 +1,4 @@
-import { AxiosEnum } from '@Module/core/enums/Axios';
+import { AxiosEnum } from '../../enums/Axios';
 
 export function newImageShape(
   data: any[],

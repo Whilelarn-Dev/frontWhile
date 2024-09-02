@@ -1,5 +1,4 @@
 import { LocalStorageEnum } from '../enums/LocalStorage';
-import { BaseRoute } from '../../../Routes';
 import { RoutesType, ParentRouteType } from '../types/route';
 
 // Helper function to check if a route has children
@@ -22,7 +21,6 @@ export const getTitleFromRoute = (path: string): string | undefined => {
     });
   };
 
-  addRoutesToDictionary(BaseRoute as RoutesType[]);
 
   const header = AppRoutes[path];
 
